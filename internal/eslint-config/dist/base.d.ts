@@ -1,0 +1,2 @@
+export * from "/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/eslint-config/src/base";
+export { default } from "/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/eslint-config/src/base";
