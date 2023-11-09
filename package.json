@@ -1,6 +1,9 @@
 {
   "private": true,
   "scripts": {
+    "bootstrap": "pnpm install",
+    "clean": "turbo run clean",
+    "clean:root": " rimraf node_modules",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
@@ -13,5 +16,10 @@
     "unbuild": "^2.0.0"
   },
   "packageManager": "pnpm@8.6.10",
-  "name": "strawberry-monorepo"
+  "name": "strawberry-monorepo",
+  "dependencies": {
+    "@strawberry/eslint-config": "workspace:^",
+    "@strawberry/prettier-config": "workspace:^",
+    "@strawberry/ts-config": "workspace:^"
+  }
 }

@@ -1,8 +1,7 @@
 {
-  "name": "react-app",
+  "name": "@strawberry/react-app",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,19 +9,28 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@strawberry/eslint-config": "workspace:^",
+    "@strawberry/prettier-config": "workspace:^",
+    "@strawberry/ts-config": "workspace:^",
+    "@types/node": "^20.6.0",
+    "@vanilla-extract/css": "^1.13.0",
+    "mobx": "^6.10.2",
+    "mobx-react-lite": "^4.0.5",
+    "mobx-state-tree": "^5.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "eslint": "^8.45.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vanilla-extract/vite-plugin": "^3.9.0",
+    "@vitejs/plugin-react-swc": "^3.4.1",
+    "eslint": "^8.53.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
   }
 }

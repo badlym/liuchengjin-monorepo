@@ -1,0 +1,46 @@
+{
+  "name": "@strawberry/stylelint-config",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "pnpm rimraf .turbo node_modules dist",
+    "lint": "pnpm eslint . --fix",
+    "ncu": "ncu",
+    "ncu:update": "ncu -u",
+    "release": "release-it --ci",
+    "stub": "pnpm unbuild --stub"
+  },
+  "dependencies": {
+    "@strawberry/eslint-config": "workspace:^"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.31",
+    "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
+    "postcss-scss": "^4.0.9",
+    "prettier": "^3.0.3",
+    "stylelint": "^15.11.0",
+    "stylelint-config-property-sort-order-smacss": "^9.1.0",
+    "stylelint-config-recommended": "^13.0.0",
+    "stylelint-config-recommended-scss": "^13.1.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^11.1.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-prettier": "^4.0.2"
+  }
+}
