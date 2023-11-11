@@ -1,6 +1,12 @@
 export default {
   root: true,
-  extends: ['airbnb', 'airbnb-typescript', 'airbnb/hooks', '@strawberry/eslint-config/base-ts'],
+  extends: [
+    'airbnb',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    '@strawberry/eslint-config/base-ts',
+    '@unocss',
+  ],
   plugins: ['react-refresh'],
   rules: {
     'class-methods-use-this': 'off', // 允许类方法不使用this

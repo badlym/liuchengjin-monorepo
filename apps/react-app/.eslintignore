@@ -14,8 +14,8 @@ dist
 .local
 /bin
 Dockerfile
-.eslintrc.cjs
-!.eslintrc.cjs
+.eslintrc.js
+!.eslintrc.js
 .stylelintrc.js
 .stylelintignore
 

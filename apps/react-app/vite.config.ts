@@ -2,12 +2,13 @@ import { resolve } from 'node:path'
 
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import react from '@vitejs/plugin-react-swc'
+import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
 // https://vitejs.dev/config/
 const root = process.cwd()
 const pathResolve = (pathname: string) => resolve(root, '.', pathname)
 export default defineConfig({
-  plugins: [react(), vanillaExtractPlugin()],
+  plugins: [react(), vanillaExtractPlugin(), UnoCSS()],
   resolve: {
     alias: [
       {

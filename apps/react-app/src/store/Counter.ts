@@ -1,5 +1,9 @@
 import { flow, types } from 'mobx-state-tree'
 
+/**
+ *
+ * @type {IModelType<ModelPropertiesDeclarationToProperties<{asyncCount: ISimpleType<unknown>, syncCount: ISimpleType<unknown>}>, {setAsyncIncrement: () => Promise<FlowReturn<void>>, setSyncIncrement(): void} & {readonly totalCount: any}, _NotCustomized, _NotCustomized>}
+ */
 export const CounterStore = types
   .model('CounterStore', {
     syncCount: types.number,

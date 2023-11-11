@@ -1,54 +1,29 @@
-// @ts-ignore
-import { observer } from 'mobx-react-lite'
+import { StyleProvider } from '@ant-design/cssinjs'
+import { App as AntdApp, ConfigProvider } from 'antd'
+import zhCN from 'antd/es/locale/zh_CN'
 
-// @ts-ignore
-import { buttonStyle, totalStyle } from '@/App.css.ts'
-import { useMst } from '@/store'
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-import reactLogo from './assets/react.svg'
+import Router from '@/routers'
+import { Provider, rootStore } from '@/store'
 
-// eslint-disable-next-line import/no-unresolved
-import viteLogo from '/vite.svg'
-
-import './App.css'
-
-const App = observer(() => {
-  const { counterStore } = useMst()
-
-  const setSyncCount = () => {
-    counterStore.setSyncIncrement()
-  }
-  const setAsyncCount = () => {
-    void counterStore.setAsyncIncrement()
-  }
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-
-      <div className="card">
-        <button className={buttonStyle} onClick={setSyncCount}>
-          同步新增 is {counterStore.syncCount}
-        </button>
-        <button className={buttonStyle} style={{ marginLeft: '20px' }} onClick={setAsyncCount}>
-          异步新增 is {counterStore.asyncCount}
-        </button>
-        <div className={totalStyle}>计算属性相加 is {counterStore.totalCount}</div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    <React.StrictMode>
+      <Provider value={rootStore}>
+        <BrowserRouter basename="/">
+          <ConfigProvider locale={zhCN}>
+            <StyleProvider>
+              <AntdApp>
+                <Router />
+              </AntdApp>
+            </StyleProvider>
+          </ConfigProvider>
+        </BrowserRouter>
+      </Provider>
+    </React.StrictMode>
   )
-})
+}
 
 export default App

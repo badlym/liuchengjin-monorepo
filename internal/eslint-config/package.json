@@ -38,7 +38,12 @@
       "types": "./dist/react-native.d.ts",
       "import": "./dist/react-native.mjs",
       "require": "./dist/react-native.cjs"
-    }
+    },
+    "./nest-app": {
+      "types": "./dist/nest-app.d.ts",
+      "import": "./dist/nest-app.mjs",
+      "require": "./dist/nest-app.cjs"}
+
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",

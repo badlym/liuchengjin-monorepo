@@ -7,6 +7,6 @@ const _module = jiti(null, {
   "alias": {
     "@strawberry/stylelint-config": "/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/stylelint-config"
   }
-})("/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/stylelint-config/src/index.ts");
+})("/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/stylelint-config/src/index.tsx");
 
 export default _module;

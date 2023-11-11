@@ -4,4 +4,4 @@ module.exports = require("/Users/liuchengjin/personal-projects/strawberry-monore
   "alias": {
     "@strawberry/eslint-config": "/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/eslint-config"
   }
-})("/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/eslint-config/src/index.ts")
+})("/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/eslint-config/src/index.tsx")

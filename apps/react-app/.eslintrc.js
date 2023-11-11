@@ -5,6 +5,7 @@ module.exports = {
     'no-void': 'off',
     'react/jsx-no-undef': 'off',
     '@typescript-eslint/no-explicit-any': 'Off',
+    'global-require': 'off',
   },
   parserOptions: {
     project: ['./tsconfig.eslint.json', './tsconfig.json'],
