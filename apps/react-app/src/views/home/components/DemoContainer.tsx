@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import FrontEnd from '@/views/home/components/FrontEnd'
+import Order from '@/views/home/components/Order'
 import User from '@/views/home/components/User'
 
 const DemoContainer: FC<{
@@ -11,6 +12,8 @@ const DemoContainer: FC<{
       return <FrontEnd />
     case 'user':
       return <User />
+    case 'order':
+      return <Order />
     default:
       return <div>暂无内容</div>
   }

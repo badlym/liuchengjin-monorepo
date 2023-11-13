@@ -7,6 +7,6 @@ const _module = jiti(null, {
   "alias": {
     "@strawberry/prettier-config": "/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/prettier-config"
   }
-})("/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/prettier-config/src/index.tsx");
+})("/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/prettier-config/src/index.ts");
 
 export default _module;

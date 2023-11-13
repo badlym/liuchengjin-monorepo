@@ -14,8 +14,8 @@
     },
     "noUnusedLocals": false,
 
-    "moduleResolution": "node"
-
+    "moduleResolution": "node",
+    "noImplicitAny": false
   },
 
   "include": [

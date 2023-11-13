@@ -5,8 +5,19 @@ import { Button, Popconfirm } from 'antd'
 import { omit } from 'lodash-es'
 import { useRef } from 'react'
 
-import { createApi, deleteByIdApi, findAllApi, updateByIdApi } from '@/api/user'
+import { createApi, deleteByIdApi, findAllApi, updateByIdApi } from '@/api/order'
+import { findAllApi as findAllUserApi } from '@/api/user'
 
+const request = async () => {
+  const res = await findAllUserApi({})
+
+  return res.map((item) => {
+    return {
+      label: item.name,
+      value: item.id,
+    }
+  })
+}
 const columns: ProColumns[] = [
   {
     dataIndex: 'index',
@@ -14,45 +25,32 @@ const columns: ProColumns[] = [
     width: 48,
   },
   {
-    title: '姓名',
-    dataIndex: 'name',
+    title: '工单名称',
+    dataIndex: 'orderName',
     copyable: true, // 可复制
     ellipsis: true, // 超出省略
   },
   {
-    title: '性别',
-    dataIndex: 'sex',
+    title: '工单编号',
+    dataIndex: 'orderDetails',
     search: false, // 不可搜索
     ellipsis: true, // 超出省略
-    // @ts-ignore
-    // editable: (_value, record, _index) => {
-    //   if (!isEmpty(record)) {
-    //     const isOnlyId = keys(record).length === 1 && has(record, 'id')
-    //     if (isOnlyId) return true
-    //     return false
+  },
+
+  {
+    title: '所属用户',
+    dataIndex: ['user', 'id'],
+    ellipsis: true, // 超出省略
+    valueType: 'select',
+    request,
+    // valueEnum: (row) => {
+    //   debugger
+    //   return {
+    //     [row.user.id]: {
+    //       text: row.user.name,
+    //     },
     //   }
     // },
-    valueType: 'select',
-    valueEnum: {
-      '0': {
-        text: '男',
-      },
-      '1': {
-        text: '女',
-      },
-    },
-  },
-  {
-    title: '年龄',
-    dataIndex: 'age',
-    search: false, // 不可搜索
-    ellipsis: true, // 超出省略
-  },
-  {
-    title: '邮箱',
-    dataIndex: 'email',
-    search: false, // 不可搜索
-    ellipsis: true, // 超出省略
   },
 
   {
@@ -137,7 +135,7 @@ export default () => {
         pageSize: 10,
       }}
       dateFormatter="string"
-      headerTitle="用户"
+      headerTitle="高级表格"
       toolBarRender={() => [
         <Button
           key="button"
