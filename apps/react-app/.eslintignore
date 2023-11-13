@@ -18,6 +18,7 @@ Dockerfile
 !.eslintrc.js
 .stylelintrc.js
 .stylelintignore
+dist/
 
 
 

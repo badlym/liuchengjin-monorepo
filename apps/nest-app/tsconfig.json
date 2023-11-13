@@ -1,0 +1,12 @@
+{
+    "extends": "@strawberry/ts-config/nest.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "./dist",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "strictPropertyInitialization": false
+    },
+    "include": ["src", "test", "typings/**/*.d.ts", "**.js"]
+}

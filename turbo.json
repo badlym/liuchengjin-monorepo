@@ -1,15 +1,40 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": ["dist/**"]
     },
+    "build:test": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "build:docker": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "docs:build": {
+      "dependsOn": ["^build"],
+      "outputs": [".vitepress/dist/**"]
+    },
+    "docs:dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "stub": {},
     "lint": {},
+    "ncu": {},
+    "ncu:update": {},
+    "clean": {
+      "cache": false
+    },
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "release": {
+      "dependsOn": ["^release"],
+      "outputMode": "new-only"
     }
   }
 }
