@@ -36,7 +36,7 @@ export default defineConfig({
   // 配置共享设置
   settings: {
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx', '.css.ts'],
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
       typescript: {

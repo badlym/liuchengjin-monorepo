@@ -15,7 +15,6 @@ import { UserService } from './user/user.service'
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      // @ts-ignore
       type: 'sqlite',
       database: './database/database.sqlite',
       entities: [User, Order],

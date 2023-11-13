@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "types": ["@types/node"],
-    "noEmit": true,
-    "allowJs": true
+    "noEmit": true,//不生成js文件
+    "allowJs": true //允许编译js文件
   },
   "extends": "./tsconfig.json",
   "include": [
