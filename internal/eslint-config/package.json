@@ -1,6 +1,6 @@
 {
   "name": "@strawberry/eslint-config",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "license": "MIT",
   "exports": {
@@ -42,8 +42,8 @@
     "./nest-app": {
       "types": "./dist/nest-app.d.ts",
       "import": "./dist/nest-app.mjs",
-      "require": "./dist/nest-app.cjs"}
-
+      "require": "./dist/nest-app.cjs"
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -60,8 +60,7 @@
     "release": "release-it --ci",
     "stub": "pnpm unbuild --stub"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",

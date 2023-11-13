@@ -1,20 +1,21 @@
 {
   "name": "@strawberry/react-app",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
+    "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint-staged": "pnpm exec lint-staged",
     "preview": "vite preview",
     "type:check": "tsc --noEmit --skipLibCheck"
-
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/pro-components": "^2.6.35",
     "@strawberry/eslint-config": "workspace:^",
+    "@strawberry/lint-staged-config": "workspace:^",
     "@strawberry/prettier-config": "workspace:^",
     "@strawberry/ts-config": "workspace:^",
     "@types/node": "^20.6.0",

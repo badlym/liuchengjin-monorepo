@@ -1,0 +1,35 @@
+{
+  "name": "@strawberry/lint-staged-config",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./vue-app": {
+      "types": "./dist/vue-app.d.ts",
+      "import": "./dist/vue-app.mjs",
+      "require": "./dist/vue-app.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "pnpm rimraf .turbo node_modules dist",
+    "lint": "pnpm eslint . --fix",
+    "ncu": "ncu",
+    "ncu:update": "ncu -u",
+    "release": "release-it --ci",
+    "stub": "pnpm unbuild --stub"
+  },
+  "dependencies": {}
+}
