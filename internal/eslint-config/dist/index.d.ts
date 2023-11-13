@@ -1,2 +1,0 @@
-export * from "/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/eslint-config/src/index";
-export { default } from "/Users/liuchengjin/personal-projects/strawberry-monorepo/internal/eslint-config/src/index";

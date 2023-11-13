@@ -6,6 +6,7 @@ import { RouteObject } from '@/routers/interface'
 const metaRouters = import.meta.glob('./modules/*.tsx', { eager: true })
 
 // * 处理路由
+
 export const routerArray: RouteObject[] = []
 Object.keys(metaRouters).forEach((item) => {
   // @ts-ignore

@@ -95,7 +95,7 @@ export default () => {
       columns={columns}
       actionRef={actionRef}
       cardBordered
-      request={async (params, sort, filter) => {
+      request={async (params) => {
         const res = await findAllApi({
           page: params.current,
           limit: params.pageSize,

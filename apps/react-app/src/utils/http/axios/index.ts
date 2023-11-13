@@ -29,8 +29,10 @@ const transform: AxiosTransform = {
   transformResponseHook: async (
     res: AxiosResponse<Result>,
     options: RequestOptions,
-    axiosInstance: AxiosInstance,
-    createAxiosOptions: CreateAxiosOptions,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // axiosInstance: AxiosInstance,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // createAxiosOptions: CreateAxiosOptions,
   ) => {
     const { isTransformResponse, isReturnNativeResponse } = options
     // 是否返回原生响应头 比如：需要获取响应头时使用该属性
@@ -151,7 +153,7 @@ const transform: AxiosTransform = {
    * @description: 请求拦截器处理
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  requestInterceptors: (config, options) => {
+  requestInterceptors: (config) => {
     // 请求之前处理config
     // const token = getToken()
     // if (token && (config as Recordable)?.requestOptions?.withToken !== false) {

@@ -1,2 +1,2 @@
-import './unocss'
 import './style.css'
+import './unocss'

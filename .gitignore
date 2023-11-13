@@ -7,7 +7,6 @@ dist.zip
 .eslint-auto-import.json
 auto-imports.d.ts
 components.d.ts
-tests
 
 *.zip
 

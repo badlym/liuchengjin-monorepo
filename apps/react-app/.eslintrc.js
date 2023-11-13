@@ -7,6 +7,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'Off',
     'global-require': 'off',
     'no-console': 'off',
+    // '@typescript-eslint/no-unused-vars': 'off',
   },
   parserOptions: {
     project: ['./tsconfig.eslint.json', './tsconfig.json'],
