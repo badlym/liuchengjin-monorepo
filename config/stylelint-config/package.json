@@ -1,6 +1,6 @@
 {
   "name": "@liuchengjin/stylelint-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "license": "MIT",
   "exports": {
@@ -27,7 +27,6 @@
   "dependencies": {
     "@liuchengjin/eslint-config": "workspace:^",
     "@liuchengjin/release-it-config": "workspace:^"
-
   },
   "devDependencies": {
     "postcss": "^8.4.31",
