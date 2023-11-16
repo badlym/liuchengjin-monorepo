@@ -1,6 +1,6 @@
 {
   "name": "@liuchengjin/prettier-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "description": "",
   "keywords": [],
@@ -30,9 +30,9 @@
   },
   "dependencies": {
     "@liuchengjin/eslint-config": "workspace:^",
+    "@liuchengjin/release-it-config": "workspace:^",
     "prettier": "^3.1.0",
-    "prettier-plugin-packagejson": "^2.4.6",
-    "@liuchengjin/release-it-config": "workspace:^"
+    "prettier-plugin-packagejson": "^2.4.6"
   },
   "publishConfig": {
     "access": "public"
