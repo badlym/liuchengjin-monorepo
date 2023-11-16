@@ -1,6 +1,6 @@
 {
   "name": "@liuchengjin/ts-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "license": "MIT",
   "files": [
@@ -17,9 +17,9 @@
     "release": "release-it --ci"
   },
   "dependencies": {
+    "@liuchengjin/release-it-config": "workspace:^",
     "@types/node": "^20.9.0",
-    "unplugin-vue-define-options": "^1.3.18",
-    "@liuchengjin/release-it-config": "workspace:^"
+    "unplugin-vue-define-options": "^1.3.18"
   },
   "publishConfig": {
     "access": "public"
