@@ -30,7 +30,7 @@ module.exports = {
     versionArgs: ['--workspaces false'], //用于 npm.versionArgs 设置自定义参数。默认为 ["--force"]。
   },
   github: {
-    release: true, //用于 github.release 设置是否应发布到 GitHub。默认为 false。
+    release: false, //用于 github.release 设置是否应发布到 GitHub。默认为 false。
     releaseName: `${packageName}-v${version}`,
   },
   gitlab: {
