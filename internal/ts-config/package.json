@@ -1,7 +1,7 @@
 {
   "name": "@liuchengjin/ts-config",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "files": [
     "base.json",

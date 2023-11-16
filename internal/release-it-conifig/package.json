@@ -1,6 +1,7 @@
 {
   "name": "@liuchengjin/release-it-config",
   "version": "0.1.0",
+  "private": false,
   "license": "MIT",
   "exports": {
     ".": {
@@ -27,7 +28,7 @@
     "@b12k/mvm": "0.0.10",
     "@commitlint/cli": "^18.4.1",
     "@commitlint/config-conventional": "^18.4.0",
-    "release-it": "17.0.0",
-    "@release-it/conventional-changelog": "8.0.1"
+    "@release-it/conventional-changelog": "8.0.1",
+    "release-it": "17.0.0"
   }
 }

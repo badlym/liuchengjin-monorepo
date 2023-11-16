@@ -1,6 +1,7 @@
 {
   "name": "@liuchengjin/lint-staged-config",
   "version": "0.0.0",
+  "private": false,
   "description": "",
   "keywords": [],
   "license": "ISC",

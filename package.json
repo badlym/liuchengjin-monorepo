@@ -1,6 +1,6 @@
 {
   "name": "liuchengjin-monorepo",
-  "private": true,
+  "private": false,
   "scripts": {
     "bootstrap": "pnpm install",
     "build": "turbo run build",
