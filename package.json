@@ -27,6 +27,7 @@
     "@liuchengjin/eslint-config": "workspace:^",
     "@liuchengjin/lint-staged-config": "workspace:^",
     "@liuchengjin/prettier-config": "workspace:^",
+    "@liuchengjin/release-it-config": "workspace:^",
     "@liuchengjin/ts-config": "workspace:^",
     "cz-git": "^1.7.1",
     "czg": "^1.7.1",
@@ -34,12 +35,11 @@
     "lint-staged": "15.1.0"
   },
   "devDependencies": {
+    "@b12k/mvm": "0.0.10",
     "@commitlint/cli": "17.6.1",
     "@commitlint/config-conventional": "17.6.1",
-    "@release-it/conventional-changelog": "8.0.1",
     "@turbo/gen": "^1.10.16",
     "@types/node": "^20.9.0",
-    "release-it": "17.0.0",
     "turbo": "latest",
     "unbuild": "^2.0.0"
   },

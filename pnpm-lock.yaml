@@ -17,6 +17,9 @@ importers:
       '@liuchengjin/prettier-config':
         specifier: workspace:^
         version: link:internal/prettier-config
+      '@liuchengjin/release-it-config':
+        specifier: workspace:^
+        version: link:internal/release-it-conifig
       '@liuchengjin/ts-config':
         specifier: workspace:^
         version: link:internal/ts-config
@@ -33,24 +36,21 @@ importers:
         specifier: 15.1.0
         version: 15.1.0
     devDependencies:
+      '@b12k/mvm':
+        specifier: 0.0.10
+        version: 0.0.10
       '@commitlint/cli':
         specifier: 17.6.1
         version: 17.6.1
       '@commitlint/config-conventional':
         specifier: 17.6.1
         version: 17.6.1
-      '@release-it/conventional-changelog':
-        specifier: 8.0.1
-        version: 8.0.1(release-it@17.0.0)
       '@turbo/gen':
         specifier: ^1.10.16
         version: 1.10.16(@types/node@20.9.0)(typescript@5.2.2)
       '@types/node':
         specifier: ^20.9.0
         version: 20.9.0
-      release-it:
-        specifier: 17.0.0
-        version: 17.0.0(typescript@5.2.2)
       turbo:
         specifier: latest
         version: 1.10.16
@@ -4478,7 +4478,7 @@ packages:
       '@vue/compiler-dom': 3.3.4
       '@vue/reactivity': 3.3.4
       '@vue/shared': 3.3.4
-      minimatch: 9.0.0
+      minimatch: 9.0.3
       muggle-string: 0.3.1
       typescript: 5.0.2
       vue-template-compiler: 2.7.14
