@@ -1,6 +1,10 @@
 {
-  "name": "liuchengjin-monorepo",
+  "name": "@liuchengjin/liuchengjin-monorepo",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/badlym/strawberry-monorepo"
+  },
   "scripts": {
     "bootstrap": "pnpm install",
     "build": "turbo run build",
