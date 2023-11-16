@@ -1,5 +1,5 @@
 export default {
-  extends: ["@strawberry/eslint-config/base"],
+  extends: ["@liuchengjin/eslint-config/base"],
   // plugins: ['simple-import-sort'],
   rules: {
     // 'simple-import-sort/imports': 'error',

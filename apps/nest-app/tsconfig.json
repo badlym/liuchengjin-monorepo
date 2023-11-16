@@ -1,5 +1,5 @@
 {
-  "extends": "@strawberry/ts-config/nest.json",
+  "extends": "@liuchengjin/ts-config/nest.json",
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist",

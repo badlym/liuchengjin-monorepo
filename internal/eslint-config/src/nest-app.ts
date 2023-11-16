@@ -6,7 +6,7 @@ export default {
     // 兼容typescript的airbnb规范
     // https://github.com/iamturns/eslint-config-airbnb-typescript
     'airbnb-typescript/base',
-    '@strawberry/eslint-config/base-ts',
+    '@liuchengjin/eslint-config/base-ts',
   ],
   rules: {
     'import/prefer-default-export': 'off', // 允许导出单个变量

@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['@strawberry/eslint-config/nest-app'],
+  extends: ['@liuchengjin/eslint-config/nest-app'],
   rules: {
     'no-void': 'off',
     '@typescript-eslint/no-explicit-any': 'Off',

@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['@strawberry/eslint-config/strict'],
+  extends: ['@liuchengjin/eslint-config/strict'],
 }

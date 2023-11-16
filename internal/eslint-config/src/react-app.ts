@@ -4,7 +4,7 @@ export default {
     'airbnb',
     'airbnb-typescript',
     'airbnb/hooks',
-    '@strawberry/eslint-config/base-ts',
+    '@liuchengjin/eslint-config/base-ts',
     '@unocss',
   ],
   plugins: ['react-refresh'],

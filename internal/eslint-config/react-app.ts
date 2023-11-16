@@ -2,7 +2,7 @@ module.exports = {
   root: true, // ESLint配置的根目录
   env: { browser: true, es2020: true }, // 指定代码运行的环境
   extends: [
-    '@strawberry/eslint-config/base-ts', // 使用strawberry基本的TypeScript配置
+    '@liuchengjin/eslint-config/base-ts', // 使用liuchengjin基本的TypeScript配置
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
   ],

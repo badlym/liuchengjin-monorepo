@@ -1,3 +1,3 @@
 module.exports = {
-  ...require('@strawberry/prettier-config'),
+  ...require('@liuchengjin/prettier-config'),
 }

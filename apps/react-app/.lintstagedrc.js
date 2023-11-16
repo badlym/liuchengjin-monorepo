@@ -1,1 +1,1 @@
-module.exports = require('@strawberry/lint-staged-config')
+module.exports = require('@liuchengjin/lint-staged-config')

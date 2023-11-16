@@ -1,16 +1,15 @@
 {
-  "name": "@strawberry/vue-app",
+  "name": "@liuchengjin/vue-app",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "start:dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@strawberry/eslint-config": "workspace:^",
-    "@strawberry/ts-config": "workspace:^",
+    "@liuchengjin/eslint-config": "workspace:^",
+    "@liuchengjin/ts-config": "workspace:^",
     "vue": "^3.3.4"
   },
   "devDependencies": {

@@ -26,11 +26,11 @@ module.exports = {
     requireCommitsFail: false, //用于 git.requireCommitsFail 设置是否应在没有提交时失败。默认为 false。
   },
   npm: {
-    publish: false,
+    publish: true,
     versionArgs: ['--workspaces false'], //用于 npm.versionArgs 设置自定义参数。默认为 ["--force"]。
   },
   github: {
-    release: false,
+    release: true,
     releaseName: `${packageName}-v${version}`,
   },
   gitlab: {

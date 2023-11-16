@@ -1,5 +1,5 @@
 {
-  "name": "strawberry-monorepo",
+  "name": "liuchengjin-monorepo",
   "private": true,
   "scripts": {
     "bootstrap": "pnpm install",
@@ -24,10 +24,10 @@
     }
   },
   "dependencies": {
-    "@strawberry/eslint-config": "workspace:^",
-    "@strawberry/lint-staged-config": "workspace:^",
-    "@strawberry/prettier-config": "workspace:^",
-    "@strawberry/ts-config": "workspace:^",
+    "@liuchengjin/eslint-config": "workspace:^",
+    "@liuchengjin/lint-staged-config": "workspace:^",
+    "@liuchengjin/prettier-config": "workspace:^",
+    "@liuchengjin/ts-config": "workspace:^",
     "cz-git": "^1.7.1",
     "czg": "^1.7.1",
     "husky": "^8.0.3",
@@ -37,7 +37,9 @@
     "@turbo/gen": "^1.10.16",
     "@types/node": "^20.9.0",
     "turbo": "latest",
-    "unbuild": "^2.0.0"
+    "unbuild": "^2.0.0",
+    "release-it": "17.0.0",
+    "@release-it/conventional-changelog": "8.0.1"
   },
   "packageManager": "pnpm@8.6.10"
 }

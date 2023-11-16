@@ -8,16 +8,16 @@ importers:
 
   .:
     dependencies:
-      '@strawberry/eslint-config':
+      '@liuchengjin/eslint-config':
         specifier: workspace:^
         version: link:internal/eslint-config
-      '@strawberry/lint-staged-config':
+      '@liuchengjin/lint-staged-config':
         specifier: workspace:^
         version: link:internal/lint-staged-config
-      '@strawberry/prettier-config':
+      '@liuchengjin/prettier-config':
         specifier: workspace:^
         version: link:internal/prettier-config
-      '@strawberry/ts-config':
+      '@liuchengjin/ts-config':
         specifier: workspace:^
         version: link:internal/ts-config
       cz-git:
@@ -33,12 +33,18 @@ importers:
         specifier: 15.1.0
         version: 15.1.0
     devDependencies:
+      '@release-it/conventional-changelog':
+        specifier: 8.0.1
+        version: 8.0.1(release-it@17.0.0)
       '@turbo/gen':
         specifier: ^1.10.16
         version: 1.10.16(@types/node@20.9.0)(typescript@5.2.2)
       '@types/node':
         specifier: ^20.9.0
         version: 20.9.0
+      release-it:
+        specifier: 17.0.0
+        version: 17.0.0(typescript@5.2.2)
       turbo:
         specifier: latest
         version: 1.10.16
@@ -48,6 +54,18 @@ importers:
 
   apps/nest-app:
     dependencies:
+      '@liuchengjin/eslint-config':
+        specifier: workspace:^
+        version: link:../../internal/eslint-config
+      '@liuchengjin/lint-staged-config':
+        specifier: workspace:^
+        version: link:../../internal/lint-staged-config
+      '@liuchengjin/prettier-config':
+        specifier: workspace:^
+        version: link:../../internal/prettier-config
+      '@liuchengjin/ts-config':
+        specifier: workspace:^
+        version: link:../../internal/ts-config
       '@nestjs/common':
         specifier: ^10.2.8
         version: 10.2.8(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
@@ -63,18 +81,6 @@ importers:
       '@nestjs/typeorm':
         specifier: ^10.0.0
         version: 10.0.0(@nestjs/common@10.2.8)(@nestjs/core@10.2.8)(reflect-metadata@0.1.13)(rxjs@7.8.1)(typeorm@0.3.17)
-      '@strawberry/eslint-config':
-        specifier: workspace:^
-        version: link:../../internal/eslint-config
-      '@strawberry/lint-staged-config':
-        specifier: workspace:^
-        version: link:../../internal/lint-staged-config
-      '@strawberry/prettier-config':
-        specifier: workspace:^
-        version: link:../../internal/prettier-config
-      '@strawberry/ts-config':
-        specifier: workspace:^
-        version: link:../../internal/ts-config
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -163,19 +169,19 @@ importers:
       '@ant-design/pro-components':
         specifier: ^2.6.35
         version: 2.6.35(antd@5.11.1)(rc-field-form@1.40.0)(react-dom@18.2.0)(react@18.2.0)
-      '@strawberry/eslint-config':
+      '@liuchengjin/eslint-config':
         specifier: workspace:^
         version: link:../../internal/eslint-config
-      '@strawberry/lint-staged-config':
+      '@liuchengjin/lint-staged-config':
         specifier: workspace:^
         version: link:../../internal/lint-staged-config
-      '@strawberry/prettier-config':
+      '@liuchengjin/prettier-config':
         specifier: workspace:^
         version: link:../../internal/prettier-config
-      '@strawberry/stylelint-config':
+      '@liuchengjin/stylelint-config':
         specifier: workspace:^
         version: link:../../internal/stylelint-config
-      '@strawberry/ts-config':
+      '@liuchengjin/ts-config':
         specifier: workspace:^
         version: link:../../internal/ts-config
       '@types/node':
@@ -287,10 +293,10 @@ importers:
 
   apps/vue-app:
     dependencies:
-      '@strawberry/eslint-config':
+      '@liuchengjin/eslint-config':
         specifier: workspace:^
         version: link:../../internal/eslint-config
-      '@strawberry/ts-config':
+      '@liuchengjin/ts-config':
         specifier: workspace:^
         version: link:../../internal/ts-config
       vue:
@@ -311,6 +317,10 @@ importers:
         version: 1.8.5(typescript@5.0.2)
 
   internal/eslint-config:
+    dependencies:
+      '@liuchengjin/release-it-config':
+        specifier: workspace:^
+        version: link:../release-it-conifig
     devDependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.11.0
@@ -392,7 +402,7 @@ importers:
 
   internal/prettier-config:
     dependencies:
-      '@strawberry/eslint-config':
+      '@liuchengjin/eslint-config':
         specifier: workspace:^
         version: link:../eslint-config
       prettier:
@@ -422,7 +432,7 @@ importers:
 
   internal/stylelint-config:
     dependencies:
-      '@strawberry/eslint-config':
+      '@liuchengjin/eslint-config':
         specifier: workspace:^
         version: link:../eslint-config
     devDependencies:
@@ -1447,7 +1457,7 @@ packages:
       react: '>=16.8.0'
     dependencies:
       react: 18.2.0
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: false
 
   /@dnd-kit/core@6.1.0(react-dom@18.2.0)(react@18.2.0):
@@ -1460,7 +1470,7 @@ packages:
       '@dnd-kit/utilities': 3.2.2(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: false
 
   /@dnd-kit/modifiers@6.0.1(@dnd-kit/core@6.1.0)(react@18.2.0):
@@ -1472,7 +1482,7 @@ packages:
       '@dnd-kit/core': 6.1.0(react-dom@18.2.0)(react@18.2.0)
       '@dnd-kit/utilities': 3.2.2(react@18.2.0)
       react: 18.2.0
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: false
 
   /@dnd-kit/sortable@7.0.2(@dnd-kit/core@6.1.0)(react@18.2.0):
@@ -1484,7 +1494,7 @@ packages:
       '@dnd-kit/core': 6.1.0(react-dom@18.2.0)(react@18.2.0)
       '@dnd-kit/utilities': 3.2.2(react@18.2.0)
       react: 18.2.0
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: false
 
   /@dnd-kit/utilities@3.2.2(react@18.2.0):
@@ -1493,7 +1503,7 @@ packages:
       react: '>=16.8.0'
     dependencies:
       react: 18.2.0
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: false
 
   /@emotion/hash@0.8.0:
@@ -2860,7 +2870,7 @@ packages:
       is-glob: 4.0.3
       open: 9.1.0
       picocolors: 1.0.0
-      tslib: 2.5.3
+      tslib: 2.6.2
 
   /@pnpm/config.env-replace@1.1.0:
     resolution: {integrity: sha512-htyl8TWnKL7K/ESFa1oW2UB5lVDxuF5DpM7tBi6Hu2LNL3mWkIzNLG6N4zoCUP1lCKNxWy/3iu8mS8MvToGd6w==}
@@ -3327,7 +3337,7 @@ packages:
       fast-glob: 3.3.2
       fs-extra: 10.1.0
       gradient-string: 2.0.2
-      inquirer: 8.2.5
+      inquirer: 8.2.6
       js-yaml: 4.1.0
       ora: 4.1.1
       rimraf: 3.0.2
@@ -4930,7 +4940,7 @@ packages:
     resolution: {integrity: sha512-x1FCFnFifvYDDzTaLII71vG5uvDwgtmDTEVWAxrgeiR8VjMONcCXJx7E+USjDtHlwFmt9MysbqgF9b9Vjr6w+w==}
     engines: {node: '>=4'}
     dependencies:
-      tslib: 2.5.3
+      tslib: 2.6.2
     dev: true
 
   /ast-walker-scope@0.5.0(rollup@3.29.1):
@@ -6545,7 +6555,7 @@ packages:
       has-symbols: 1.0.3
       internal-slot: 1.0.5
       iterator.prototype: 1.1.0
-      safe-array-concat: 1.0.0
+      safe-array-concat: 1.0.1
     dev: true
 
   /es-iterator-helpers@1.0.15:
@@ -12380,16 +12390,6 @@ packages:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
     dependencies:
       tslib: 2.5.3
-
-  /safe-array-concat@1.0.0:
-    resolution: {integrity: sha512-9dVEFruWIsnie89yym+xWTAYASdpw3CJV7Li/6zBewGf9z2i1j31rP6jnY0pHEO4QZh6N0K11bFjWmdR8UGdPQ==}
-    engines: {node: '>=0.4'}
-    dependencies:
-      call-bind: 1.0.2
-      get-intrinsic: 1.2.1
-      has-symbols: 1.0.3
-      isarray: 2.0.5
-    dev: true
 
   /safe-array-concat@1.0.1:
     resolution: {integrity: sha512-6XbUAseYE2KtOuGueyeobCySj9L4+66Tn6KQMOPQJrAJEowYKW/YR/MGJZl7FdydUdaFu4LYyDZjxf4/Nmo23Q==}

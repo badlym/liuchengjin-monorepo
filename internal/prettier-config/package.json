@@ -1,5 +1,5 @@
 {
-  "name": "@strawberry/prettier-config",
+  "name": "@liuchengjin/prettier-config",
   "version": "0.0.0",
   "description": "",
   "keywords": [],
@@ -28,7 +28,7 @@
     "stub": "pnpm unbuild --stub"
   },
   "dependencies": {
-    "@strawberry/eslint-config": "workspace:^",
+    "@liuchengjin/eslint-config": "workspace:^",
     "prettier": "^3.1.0",
     "prettier-plugin-packagejson": "^2.4.6"
   }

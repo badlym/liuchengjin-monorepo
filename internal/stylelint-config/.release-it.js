@@ -1,1 +1,1 @@
-module.exports = require('@strawberry/release-it-config')
+module.exports = require('@liuchengjin/release-it-config')

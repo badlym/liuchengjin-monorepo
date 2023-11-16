@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['@strawberry/eslint-config/react-app'],
+  extends: ['@liuchengjin/eslint-config/react-app'],
   rules: {
     'no-void': 'off',
     'react/jsx-no-undef': 'off',
