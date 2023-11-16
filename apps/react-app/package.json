@@ -7,10 +7,10 @@
     "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint-staged": "pnpm exec lint-staged",
-    "preview": "vite preview",
-    "type:check": "tsc --noEmit --skipLibCheck",
     "ncu": "ncu",
-    "ncu:update": "ncu -u"
+    "ncu:update": "ncu -u",
+    "preview": "vite preview",
+    "type:check": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
@@ -58,5 +58,8 @@
     "typescript": "^5.2.2",
     "unocss": "^0.57.3",
     "vite": "^4.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

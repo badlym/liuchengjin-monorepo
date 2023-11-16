@@ -32,5 +32,8 @@
     "release": "release-it --ci",
     "stub": "pnpm unbuild --stub"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }

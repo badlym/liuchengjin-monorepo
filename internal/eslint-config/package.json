@@ -89,5 +89,8 @@
     "prettier": "^3.1.0",
     "prettier-plugin-packagejson": "^2.4.6",
     "vue-eslint-parser": "^9.3.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

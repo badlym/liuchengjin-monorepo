@@ -48,5 +48,8 @@
     "turbo": "latest",
     "unbuild": "^2.0.0"
   },
-  "packageManager": "pnpm@8.6.10"
+  "packageManager": "pnpm@8.6.10",
+  "publishConfig": {
+    "access": "public"
+  }
 }

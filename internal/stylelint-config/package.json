@@ -42,5 +42,8 @@
     "stylelint-config-standard-scss": "^11.1.0",
     "stylelint-order": "^6.0.3",
     "stylelint-prettier": "^4.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
