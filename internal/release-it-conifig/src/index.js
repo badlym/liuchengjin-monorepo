@@ -18,9 +18,9 @@ module.exports = {
     },
   },
   git: {
-    push: true,
-    tagName: `${packageName}-v${version}`,
-    commitsPath: '.',
+    push: true, //用于 git.push 设置是否应推送到远程。默认为 true。
+    tagName: `${packageName}-v${version}`, //用于 git.tagName 设置自定义标签名称。默认为 "${version}"。
+    commitsPath: '.', //用于 git.commitsPath 设置自定义路径。默认为 "."。
     commitMessage: `feat(${scope}): released version v${version} [no ci]`, //用于 git.commitMessage 设置自定义提交消息。默认为 "chore(release): ${version}"。
     requireCommits: true, //用于 git.requireCommits 设置是否需要提交。默认为 true。
     requireCommitsFail: false, //用于 git.requireCommitsFail 设置是否应在没有提交时失败。默认为 false。
