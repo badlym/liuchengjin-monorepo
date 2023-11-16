@@ -44,6 +44,7 @@
     "@liuchengjin/lint-staged-config": "workspace:^",
     "@liuchengjin/prettier-config": "workspace:^",
     "@liuchengjin/ts-config": "workspace:^",
+    "@liuchengjin/release-it-config": "workspace:^",
     "@nestjs/common": "^10.2.8",
     "@nestjs/core": "^10.2.8",
     "@nestjs/mapped-types": "*",

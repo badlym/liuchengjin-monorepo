@@ -32,7 +32,9 @@
     "release": "release-it --ci",
     "stub": "pnpm unbuild --stub"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@liuchengjin/release-it-config": "workspace:^"
+  },
   "publishConfig": {
     "access": "public"
   }

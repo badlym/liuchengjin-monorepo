@@ -10,6 +10,7 @@
   "dependencies": {
     "@liuchengjin/eslint-config": "workspace:^",
     "@liuchengjin/ts-config": "workspace:^",
+    "@liuchengjin/release-it-config": "workspace:^",
     "vue": "^3.3.4"
   },
   "devDependencies": {
