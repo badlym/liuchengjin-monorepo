@@ -5,25 +5,24 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
+    "strict": true,
     "declaration": true,
     "noImplicitOverride": true,
+    "noUnusedLocals": true,
     "esModuleInterop": true,
     "useUnknownInCatchVariables": false,
     "composite": false,
-    "declarationMap": false,
+    "declarationMap": true,
     "forceConsistentCasingInFileNames": true,
-    "inlineSources": false,
+    "inlineSources": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-
+    "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "removeComments": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "removeComments": false,
+    "sourceMap": true
   },
   "exclude": ["**/node_modules/**", "**/dist/**"]
 }
