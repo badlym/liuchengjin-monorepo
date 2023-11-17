@@ -542,6 +542,9 @@ importers:
       '@ant-design/colors':
         specifier: ^7.0.0
         version: 7.0.0
+      '@liuchengjin/eslint-config':
+        specifier: workspace:^
+        version: link:../eslint-config
       '@liuchengjin/release-it-config':
         specifier: workspace:^
         version: link:../release-it-conifig

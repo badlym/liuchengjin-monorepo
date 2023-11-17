@@ -5,11 +5,12 @@ import { readPackageJSON } from 'pkg-types'
 import { defineConfig, loadEnv, mergeConfig, type UserConfig } from 'vite'
 
 import { createPlugins } from '../plugins'
+
 import { commonConfig } from './common'
 
 interface DefineOptions {
   overrides?: UserConfig
-  options?: Record<string, any>
+  options?: Record<string, unknown>
 }
 
 function defineApplicationConfig(defineOptions: DefineOptions = {}) {
@@ -22,7 +23,6 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
       mode,
       root,
     )
-    console.log(VITE_USE_PXVW, '等着')
 
     const defineData = await createDefineData(root)
     const plugins = await createPlugins({
@@ -75,31 +75,10 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
           output: {
             // 入口文件名
             entryFileNames: 'assets/[name].js',
-            // manualChunks: {
-            //   vue: ['vue', 'pinia', 'vue-router'],
-            //   antd: ['ant-design-vue', '@ant-design/icons-vue'],
-            // },
-            // manualChunks(id) {
-            //   console.log(id)
-            //   if (id.includes('node_modules')) {
-            //     return id
-            //       .toString()
-            //       .replace('/.pnpm', '')
-            //       .split('node_modules/')[1]
-            //       .split('/')[0]
-            //       .toString()
-            //   }
-            // },
           },
         },
       },
       css: {
-        // preprocessorOptions: {
-        //   less: {
-        //     modifyVars: generateModifyVars(),
-        //     javascriptEnabled: true,
-        //   },
-        // },
         modules: {
           localsConvention: 'camelCase',
         },
