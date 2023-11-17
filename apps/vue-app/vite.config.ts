@@ -1,7 +1,30 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineApplicationConfig } from '@liuchengjin/vite-config'
+import UnoCSS from 'unocss/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-})
+export default defineApplicationConfig({
+  overrides: {
+    base: '/',
+    plugins: [UnoCSS()],
+    build: {
+      commonjsOptions: {
+        include: [/szmap3d/, /szmap2d/, /node_modules/],
+      },
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            antd: ['ant-design-vue', '@ant-design/icons-vue'],
+          },
+        },
+      },
+    },
+    server: {
+      port: 9528,
+    },
+  },
+  options: {
+    autoImport: {
+      resolvers: [ElementPlusResolver()],
+    },
+  },
+}) as Record<string, any>
