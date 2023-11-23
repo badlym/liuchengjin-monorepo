@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "build": "vue-tsc && vite build",
+    "ncu": "ncu",
+    "ncu:update": "ncu -u",
     "preview": "vite preview",
     "start:dev": "vite"
   },
@@ -13,16 +15,16 @@
     "@liuchengjin/ts-config": "workspace:^",
     "@liuchengjin/vite-config": "workspace:^",
     "@vueuse/core": "^10.6.1",
-    "unocss": "^0.57.4",
+    "unocss": "^0.57.7",
     "unplugin-vue-components": "^0.25.2",
-    "vue": "^3.3.4"
+    "vue": "^3.3.8"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.136",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "vue-tsc": "^1.8.5"
+    "@iconify/json": "^2.2.145",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "typescript": "^5.3.2",
+    "vite": "^5.0.2",
+    "vue-tsc": "^1.8.22"
   },
   "publishConfig": {
     "access": "public"
