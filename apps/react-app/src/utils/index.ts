@@ -42,3 +42,6 @@ export function setObjToUrlParams(baseUrl: string, obj: any): string {
   parameters = parameters.replace(/&$/, '')
   return /\?$/.test(baseUrl) ? baseUrl + parameters : baseUrl.replace(/\/?$/, '?') + parameters
 }
+export function tranasformvue() {
+  console.log('引入了从react中传入的东西')
+}

@@ -314,6 +314,9 @@ importers:
       '@liuchengjin/eslint-config':
         specifier: workspace:^
         version: link:../../config/eslint-config
+      '@liuchengjin/react-app':
+        specifier: workspace:^
+        version: link:../react-app
       '@liuchengjin/release-it-config':
         specifier: workspace:^
         version: link:../../config/release-it-conifig
@@ -5004,7 +5007,7 @@ packages:
       '@unocss/core': 0.57.7
       '@unocss/reset': 0.57.7
       '@unocss/vite': 0.57.7(rollup@3.29.1)(vite@5.0.2)
-      vite: 5.0.2(@types/node@20.9.4)
+      vite: 5.0.2(@types/node@20.9.0)(less@4.2.0)(sass@1.69.5)
     transitivePeerDependencies:
       - rollup
 
@@ -5205,7 +5208,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.3.2
       magic-string: 0.30.5
-      vite: 5.0.2(@types/node@20.9.4)
+      vite: 5.0.2(@types/node@20.9.0)(less@4.2.0)(sass@1.69.5)
     transitivePeerDependencies:
       - rollup
 
@@ -16601,7 +16604,7 @@ packages:
       '@unocss/transformer-directives': 0.57.7
       '@unocss/transformer-variant-group': 0.57.7
       '@unocss/vite': 0.57.7(rollup@3.29.1)(vite@5.0.2)
-      vite: 5.0.2(@types/node@20.9.4)
+      vite: 5.0.2(@types/node@20.9.0)(less@4.2.0)(sass@1.69.5)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -17114,6 +17117,7 @@ packages:
       rollup: 4.5.1
     optionalDependencies:
       fsevents: 2.3.3
+    dev: true
 
   /vue-demi@0.14.6(vue@3.3.8):
     resolution: {integrity: sha512-8QA7wrYSHKaYgUxDA5ZC24w+eHm3sYCbp0EzcDwKqN3p6HqtTCGR/GVsPyZW92unff4UlcSh++lmqDWN3ZIq4w==}

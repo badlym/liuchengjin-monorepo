@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@liuchengjin/eslint-config": "workspace:^",
+    "@liuchengjin/react-app": "workspace:^",
     "@liuchengjin/release-it-config": "workspace:^",
     "@liuchengjin/ts-config": "workspace:^",
     "@liuchengjin/vite-config": "workspace:^",
