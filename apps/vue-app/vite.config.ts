@@ -7,9 +7,9 @@ export default defineApplicationConfig({
     base: '/',
     plugins: [UnoCSS()],
     build: {
-      commonjsOptions: {
-        include: [/szmap3d/, /szmap2d/, /node_modules/],
-      },
+      // commonjsOptions: {
+      //   include: [/node_modules/],
+      // },
       rollupOptions: {
         output: {
           manualChunks: {
