@@ -6,6 +6,7 @@ import { defineConfig, loadEnv, mergeConfig, type UserConfig } from 'vite'
 
 import { createPlugins } from '../plugins'
 import { generateModifyVars } from '../utils/modifyVars'
+
 import { commonConfig } from './common'
 
 interface DefineOptions {
@@ -75,7 +76,7 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
             // 入口文件名
             entryFileNames: 'assets/[name].js',
             manualChunks: {
-              vue: ['vue', 'pinia', 'vue-router'],
+              // vue: ['vue', 'pinia', 'vue-router'],
             },
             // manualChunks(id) {
             //   console.log(id)

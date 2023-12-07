@@ -13,7 +13,7 @@ export default defineApplicationConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            antd: ['ant-design-vue', '@ant-design/icons-vue'],
+            // antd: ['ant-design-vue', '@ant-design/icons-vue'],
           },
         },
       },
