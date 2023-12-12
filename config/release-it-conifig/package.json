@@ -33,7 +33,7 @@
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@release-it/conventional-changelog": "8.0.1",
-    "release-it": "17.0.0"
+    "release-it": "17.0.1"
   },
   "publishConfig": {
     "access": "public"
