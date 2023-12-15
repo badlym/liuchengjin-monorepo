@@ -22,7 +22,7 @@ export default defineConfig({
     createDefaultProgram: false,
   },
   // 插件列表
-  plugins: ['@typescript-eslint', 'import', 'unused-imports'],
+  plugins: ['@typescript-eslint', 'import', 'unused-imports', 'prettier'],
 
   // 继承的配置
   extends: [

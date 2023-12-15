@@ -42,7 +42,7 @@
     "@ant-design/colors": "^7.0.0",
     "@liuchengjin/eslint-config": "workspace:^",
     "@liuchengjin/release-it-config": "workspace:^",
-    "vite": "^5.0.7",
+    "vite": "^5.0.9",
     "vite-plugin-vue-setup-extend": "^0.4.0"
   },
   "devDependencies": {
