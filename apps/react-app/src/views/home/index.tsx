@@ -27,6 +27,7 @@ const items: MenuItem[] = [
   getItem('前端演示', 'front-end', <PieChartOutlined />),
   getItem('用户', 'user', <DesktopOutlined />),
   getItem('工单', 'order', <FileOutlined />),
+  getItem('three', 'three', <FileOutlined />),
 ]
 
 const Home: React.FC = () => {

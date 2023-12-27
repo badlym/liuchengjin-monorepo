@@ -43,7 +43,7 @@
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
     "@turbo/gen": "^1.11.2",
-    "@types/node": "^20.10.4",
+    "@types/node": "^20.10.5",
     "release-it": "17.0.1",
     "turbo": "latest",
     "unbuild": "^2.0.0"
