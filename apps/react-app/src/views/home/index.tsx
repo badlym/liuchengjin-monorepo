@@ -1,13 +1,13 @@
-import { DesktopOutlined, FileOutlined, PieChartOutlined } from '@ant-design/icons'
-import type { MenuProps } from 'antd'
-import { Layout, Menu, theme } from 'antd'
-import React, { useState } from 'react'
+import { DesktopOutlined, FileOutlined, PieChartOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Layout, Menu, theme } from 'antd';
+import React, { useState } from 'react';
 
-import DemoContainer from '@/views/home/components/DemoContainer'
+import DemoContainer from '@/views/home/components/DemoContainer';
 
-const { Header, Content, Footer, Sider } = Layout
+const { Header, Content, Footer, Sider } = Layout;
 
-type MenuItem = Required<MenuProps>['items'][number]
+type MenuItem = Required<MenuProps>['items'][number];
 
 function getItem(
   label: React.ReactNode,
@@ -20,7 +20,7 @@ function getItem(
     icon,
     children,
     label,
-  } as MenuItem
+  } as MenuItem;
 }
 
 const items: MenuItem[] = [
@@ -28,18 +28,18 @@ const items: MenuItem[] = [
   getItem('用户', 'user', <DesktopOutlined />),
   getItem('工单', 'order', <FileOutlined />),
   getItem('three', 'three', <FileOutlined />),
-]
+];
 
 const Home: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false)
-  const [menuKey, setMenuKey] = useState('/user')
+  const [collapsed, setCollapsed] = useState(false);
+  const [menuKey, setMenuKey] = useState('/user');
   const handleMenuClick = ({ key }: { key: string }) => {
-    setMenuKey(key)
-  }
+    setMenuKey(key);
+  };
 
   const {
     token: { colorBgContainer },
-  } = theme.useToken()
+  } = theme.useToken();
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
       </Layout>
     </Layout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
