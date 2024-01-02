@@ -14,4 +14,4 @@ export default {
     'import/no-cycle': 'off', // 允许循环引用
     'no-param-reassign': 'off', // 允许修改函数参数
   },
-}
+};

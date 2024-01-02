@@ -1,31 +1,30 @@
-import { resolve } from 'node:path'
+import { resolve } from 'node:path';
 
-import dayjs from 'dayjs'
-import { readPackageJSON } from 'pkg-types'
-import { defineConfig, loadEnv, mergeConfig, type UserConfig } from 'vite'
+import dayjs from 'dayjs';
+import { readPackageJSON } from 'pkg-types';
+import { defineConfig, loadEnv, mergeConfig, type UserConfig } from 'vite';
 
-import { createPlugins } from '../plugins'
-import { generateModifyVars } from '../utils/modifyVars'
+import { createPlugins } from '../plugins';
+import { Options } from '../types';
+import { generateModifyVars } from '../utils/modifyVars';
 
-import { commonConfig } from './common'
+import { commonConfig } from './common';
 
 interface DefineOptions {
-  overrides?: UserConfig
-  options?: {
-    //
-  }
+  overrides?: UserConfig;
+  options?: Options;
 }
 
 function defineApplicationConfig(defineOptions: DefineOptions = {}) {
-  console.log('进入了程序')
-  const { overrides = {}, options = {} } = defineOptions
+  console.log('进入了程序');
+  const { overrides = {}, options = {} } = defineOptions;
 
   return defineConfig(async ({ command, mode }) => {
-    const root = process.cwd()
-    const isBuild = command === 'build'
-    const { VITE_USE_MOCK, VITE_BUILD_COMPRESS, VITE_ENABLE_ANALYZE } = loadEnv(mode, root)
+    const root = process.cwd();
+    const isBuild = command === 'build';
+    const { VITE_USE_MOCK, VITE_BUILD_COMPRESS, VITE_ENABLE_ANALYZE } = loadEnv(mode, root);
 
-    const defineData = await createDefineData(root)
+    const defineData = await createDefineData(root);
     const plugins = await createPlugins({
       isBuild,
       root,
@@ -34,9 +33,9 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
       compress: VITE_BUILD_COMPRESS,
       framework: 'vue',
       options,
-    })
+    });
 
-    const pathResolve = (pathname: string) => resolve(root, '.', pathname)
+    const pathResolve = (pathname: string) => resolve(root, '.', pathname);
 
     const applicationConfig: UserConfig = {
       resolve: {
@@ -101,29 +100,29 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
         },
       },
       plugins,
-    }
+    };
 
-    const mergedConfig = mergeConfig(commonConfig, applicationConfig)
+    const mergedConfig = mergeConfig(commonConfig, applicationConfig);
 
-    return mergeConfig(mergedConfig, overrides)
-  })
+    return mergeConfig(mergedConfig, overrides);
+  });
 }
 
 async function createDefineData(root: string) {
   try {
-    const pkgJson = await readPackageJSON(root)
-    const { dependencies, devDependencies, name, version } = pkgJson
+    const pkgJson = await readPackageJSON(root);
+    const { dependencies, devDependencies, name, version } = pkgJson;
 
     const __APP_INFO__ = {
       pkg: { dependencies, devDependencies, name, version },
       lastBuildTime: dayjs().format('YYYY-MM-DD HH:mm:ss'),
-    }
+    };
     return {
       __APP_INFO__: JSON.stringify(__APP_INFO__),
-    }
+    };
   } catch (error) {
-    return {}
+    return {};
   }
 }
 
-export { createPlugins, defineApplicationConfig }
+export { createPlugins, defineApplicationConfig };

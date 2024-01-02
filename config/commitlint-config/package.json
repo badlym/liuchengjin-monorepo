@@ -1,5 +1,5 @@
 {
-  "name": "@liuchengjin/prettier-config",
+  "name": "@liuchengjin/commitlint-config",
   "version": "0.0.1",
   "private": false,
   "description": "",
@@ -31,8 +31,7 @@
   "dependencies": {
     "@liuchengjin/eslint-config": "workspace:^",
     "@liuchengjin/release-it-config": "workspace:^",
-    "prettier": "^3.1.1",
-    "prettier-plugin-packagejson": "^2.4.7"
+    "@commitlint/config-conventional": "18.4.3"
   },
   "publishConfig": {
     "access": "public"

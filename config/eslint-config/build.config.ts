@@ -1,4 +1,4 @@
-import { defineBuildConfig } from 'unbuild'
+import { defineBuildConfig } from 'unbuild';
 
 export default defineBuildConfig({
   preset: undefined,
@@ -16,4 +16,4 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true, // 生成cjs文件
   },
-})
+});

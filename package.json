@@ -21,6 +21,7 @@
     "ncu:root": "ncu ",
     "ncu:update": "turbo run ncu:update",
     "prepare": "husky install"
+
   },
   "config": {
     "commitizen": {
@@ -28,6 +29,7 @@
     }
   },
   "dependencies": {
+    "@liuchengjin/commitlint-config": "workspace:^",
     "@liuchengjin/eslint-config": "workspace:^",
     "@liuchengjin/lint-staged-config": "workspace:^",
     "@liuchengjin/prettier-config": "workspace:^",
