@@ -1,20 +1,20 @@
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 // @ts-ignore: type unless
-import DefineOptions from 'unplugin-vue-define-options/vite'
-import { type PluginOption } from 'vite'
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
+import DefineOptions from 'unplugin-vue-define-options/vite';
+import { type PluginOption } from 'vite';
+import vueSetupExtend from 'vite-plugin-vue-setup-extend';
 
-import { Options } from '../types'
+import { Options } from '../types';
 
-import { createAppConfigPlugin } from './appConfig'
-import { configAutoImportComponent, createAutoImport } from './autoImport'
-import { configCompressPlugin } from './compress'
-import { configHtmlPlugin } from './html'
-import stylePxToVw from './stylePxToVw'
+import { createAppConfigPlugin } from './appConfig';
+import { configAutoImportComponent, createAutoImport } from './autoImport';
+import { configCompressPlugin } from './compress';
+import { configHtmlPlugin } from './html';
+import stylePxToVw from './stylePxToVw';
 // import { configMockPlugin } from './mock'
-import { configSvgIconsPlugin, configUnPluginIcons } from './svgSprite'
-import { configVisualizerConfig } from './visualizer'
+import { configSvgIconsPlugin, configUnPluginIcons } from './svgSprite';
+import { configVisualizerConfig } from './visualizer';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/ban-ts-comment
 // @ts-ignore
 async function createPlugins({
@@ -36,17 +36,17 @@ async function createPlugins({
     DefineOptions(),
     createAutoImport(),
     framework && framework === 'vue' && configAutoImportComponent(options),
-  ]
-  const appConfigPlugin = await createAppConfigPlugin({ root, isBuild })
-  vitePlugins.push(appConfigPlugin)
+  ];
+  const appConfigPlugin = await createAppConfigPlugin({ root, isBuild });
+  vitePlugins.push(appConfigPlugin);
 
   // vite-plugin-html
-  vitePlugins.push(configHtmlPlugin({ isBuild }))
+  vitePlugins.push(configHtmlPlugin({ isBuild }));
 
   // vite-plugin-svg-icons
-  vitePlugins.push(configSvgIconsPlugin({ isBuild }))
+  vitePlugins.push(configSvgIconsPlugin({ isBuild }));
   // vitePlugins.push()
-  vitePlugins.push(configUnPluginIcons(framework, options))
+  vitePlugins.push(configUnPluginIcons(framework, options));
 
   // vite-plugin-purge-icons
   // vitePlugins.push(purgeIcons())
@@ -54,16 +54,17 @@ async function createPlugins({
   // The following plugins only work in the production environment
   if (isBuild) {
     // rollup-plugin-gzip
-    vitePlugins.push(
-      configCompressPlugin({
-        compress,
-      }),
-    )
+    compress &&
+      vitePlugins.push(
+        configCompressPlugin({
+          compress,
+        }),
+      );
   }
 
   // rollup-plugin-visualizer
   if (enableAnalyze) {
-    vitePlugins.push(configVisualizerConfig())
+    vitePlugins.push(configVisualizerConfig());
   }
 
   // vite-plugin-mock
@@ -71,7 +72,7 @@ async function createPlugins({
   //   vitePlugins.push(configMockPlugin({ isBuild }))
   // }
 
-  return vitePlugins
+  return vitePlugins;
 }
 
-export { createPlugins }
+export { createPlugins };

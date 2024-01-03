@@ -70,8 +70,8 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
       },
       define: defineData,
       build: {
-        target: 'es2015',
-        cssTarget: 'chrome80',
+        // target: 'esnext',
+        // cssTarget: 'chrome80',
         rollupOptions: {
           output: {
             // 入口文件名

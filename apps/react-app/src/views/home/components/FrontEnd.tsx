@@ -1,17 +1,17 @@
-import { observer } from 'mobx-react-lite'
+import { observer } from 'mobx-react-lite';
 
-import { useMst } from '@/store'
+import { useMst } from '@/store';
 
-import { buttonStyle, totalStyle } from './FrontEnd.css'
+import { buttonStyle, totalStyle } from './FrontEnd.css';
 
 const FrontEnd = observer(() => {
-  const { counterStore } = useMst()
+  const { counterStore } = useMst();
   const setSyncCount = () => {
-    counterStore.setSyncIncrement()
-  }
+    counterStore.setSyncIncrement();
+  };
   const setAsyncCount = () => {
-    void counterStore.setAsyncIncrement()
-  }
+    void counterStore.setAsyncIncrement();
+  };
 
   return (
     <div>
@@ -23,6 +23,6 @@ const FrontEnd = observer(() => {
       </button>
       <div className={totalStyle}>计算属性相加 is {counterStore.totalCount}</div>
     </div>
-  )
-})
-export default FrontEnd
+  );
+});
+export default FrontEnd;
