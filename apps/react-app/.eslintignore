@@ -1,5 +1,5 @@
 
-
+.eslintrc-auto-import.json
 *.sh
 node_modules
 *.md
