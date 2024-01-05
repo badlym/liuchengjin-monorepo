@@ -1,6 +1,6 @@
-import { defineApplicationConfig } from '@liuchengjin/vite-config'
-import UnoCSS from 'unocss/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { defineApplicationConfig } from '@liuchengjin/vite-config';
+import UnoCSS from 'unocss/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 export default defineApplicationConfig({
   overrides: {
@@ -19,7 +19,7 @@ export default defineApplicationConfig({
       },
     },
     server: {
-      port: 9528,
+      port: 5678,
     },
   },
   options: {
@@ -27,4 +27,4 @@ export default defineApplicationConfig({
       resolvers: [ElementPlusResolver()],
     },
   },
-}) as Record<string, any>
+}) as Record<string, any>;

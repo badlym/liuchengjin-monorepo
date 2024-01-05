@@ -42,6 +42,7 @@
     "@ant-design/colors": "^7.0.0",
     "@liuchengjin/eslint-config": "workspace:^",
     "@liuchengjin/release-it-config": "workspace:^",
+    "pdfjs-dist": "^4.0.379",
     "vite": "^5.0.10",
     "vite-plugin-vue-setup-extend": "^0.4.0"
   },

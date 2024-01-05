@@ -1,9 +1,14 @@
 <script setup lang="ts">
-  import { tranasformvue } from '@liuchengjin/react-app/src/utils'
+  import { tranasformvue } from '@liuchengjin/react-app/src/utils';
 
-  import HelloWorld from './components/HelloWorld.vue'
+  import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 
-  tranasformvue()
+  import HelloWorld from './components/HelloWorld.vue';
+
+  tranasformvue();
+  onMounted(() => {
+    console.log(pdfjsLib, 'pdfjsLib');
+  });
 </script>
 
 <template>
