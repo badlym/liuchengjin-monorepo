@@ -21,7 +21,6 @@
     "ncu:root": "ncu ",
     "ncu:update": "turbo run ncu:update",
     "prepare": "husky install"
-
   },
   "config": {
     "commitizen": {
@@ -34,6 +33,7 @@
     "@liuchengjin/lint-staged-config": "workspace:^",
     "@liuchengjin/prettier-config": "workspace:^",
     "@liuchengjin/release-it-config": "workspace:^",
+    "@liuchengjin/stylelint-config": "workspace:^",
     "@liuchengjin/ts-config": "workspace:^",
     "cz-git": "^1.8.0",
     "czg": "^1.8.0",

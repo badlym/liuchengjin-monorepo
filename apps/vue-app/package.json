@@ -2,15 +2,15 @@
   "name": "@liuchengjin/vue-app",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "vite build",
+    "clean": "rimraf .turbo && rimraf node_modules",
     "ncu": "ncu",
     "ncu:update": "ncu -u",
     "preview": "vite preview",
-    "start:dev": "vite",
-    "clean": "rimraf .turbo && rimraf node_modules"
+    "start:dev": "vite"
   },
-  "type": "module",
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
     "@liuchengjin/eslint-config": "workspace:^",
@@ -20,7 +20,6 @@
     "@liuchengjin/vite-config": "workspace:^",
     "@vueuse/core": "^10.7.0",
     "ant-design-vue": "^4.0.8",
-    "pdfjs-dist": "^4.0.379",
     "pinia": "^2.1.7",
     "unocss": "^0.58.0",
     "unplugin-vue-components": "^0.26.0",
