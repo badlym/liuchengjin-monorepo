@@ -13,6 +13,7 @@ export function configHtmlPlugin({ isBuild }: { isBuild: boolean }) {
         loading: `<div>Loading...</div>`,
       },
     },
+    // @ts-ignore
     viteNext: true,
   });
   return htmlPlugin;

@@ -40,7 +40,7 @@ const Home: React.FC = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-
+  debugger;
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>

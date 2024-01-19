@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@liuchengjin/release-it-config": "workspace:^",
-    "@types/node": "^20.10.5",
+    "@types/node": "^20.11.5",
     "unplugin-vue-define-options": "^1.4.1"
   },
   "publishConfig": {

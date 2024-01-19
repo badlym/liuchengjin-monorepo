@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { Provider, rootStore } from '@/store';
-
 import App from './App';
 import './design';
 import './index.css';
