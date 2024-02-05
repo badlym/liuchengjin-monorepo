@@ -1,16 +1,16 @@
 // src/app.module.ts
-import { Module } from '@nestjs/common'
+import { Module } from '@nestjs/common';
 
-import { TypeOrmModule } from '@nestjs/typeorm'
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { OrderController } from '@/order/order.controller'
+import { OrderController } from '@/order/order.controller';
 
-import { Order } from '@/order/order.entity'
-import { OrderService } from '@/order/order.service'
+import { Order } from '@/order/order.entity';
+import { OrderService } from '@/order/order.service';
 
-import { UserController } from './user/user.controller'
-import { User } from './user/user.entity'
-import { UserService } from './user/user.service'
+import { UserController } from './user/user.controller';
+import { User } from './user/user.entity';
+import { UserService } from './user/user.service';
 
 @Module({
   imports: [
