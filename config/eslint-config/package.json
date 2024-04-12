@@ -43,6 +43,26 @@
       "types": "./dist/nest-app.d.ts",
       "import": "./dist/nest-app.mjs",
       "require": "./dist/nest-app.cjs"
+    },
+    "./simple-base": {
+      "types": "./dist/simple-base.d.ts",
+      "import": "./dist/simple-base.mjs",
+      "require": "./dist/simple-base.cjs"
+    },
+    "./simple-react": {
+      "types": "./dist/simple-react.d.ts",
+      "import": "./dist/simple-react.mjs",
+      "require": "./dist/simple-react.cjs"
+    },
+    "./simple-vue": {
+      "types": "./dist/simple-vue.d.ts",
+      "import": "./dist/simple-vue.mjs",
+      "require": "./dist/simple-vue.cjs"
+    },
+    "./simple-nest": {
+      "types": "./dist/simple-nest.d.ts",
+      "import": "./dist/simple-nest.mjs",
+      "require": "./dist/simple-nest.cjs"
     }
   },
   "main": "./dist/index.cjs",

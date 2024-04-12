@@ -6,6 +6,7 @@ import { flow, types } from 'mobx-state-tree';
  */
 export const CounterStore = types
   .model('CounterStore', {
+    key: types.identifier,
     syncCount: types.optional(types.number, 0),
     asyncCount: types.optional(types.number, 0),
   })
@@ -27,4 +28,5 @@ export const CounterStore = types
     get totalCount() {
       return self.syncCount + self.asyncCount;
     },
+    afterCreate() {},
   }));

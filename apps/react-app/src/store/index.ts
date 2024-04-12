@@ -3,12 +3,24 @@ import { createContext, useContext } from 'react';
 
 import { CounterStore } from './Counter';
 
-const RootModel = types.model({
-  counterStore: CounterStore,
-});
+const RootModel = types
+  .model({
+    // counterStore: types.optional(CounterStore, {}),
+    counterStore: CounterStore,
+  })
+  .actions((self) => ({
+    afterCreate() {},
+  }));
+// .actions((self) => ({
+//   afterCreate() {},
+// }));
 
 const initialState = RootModel.create({
-  counterStore: {},
+  counterStore: {
+    key: 'counterStore',
+    syncCount: 0,
+    asyncCount: 0,
+  },
 });
 
 // const data = localStorage.getItem('rootState')

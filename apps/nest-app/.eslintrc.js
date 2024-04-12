@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['@liuchengjin/eslint-config/nest-app'],
+  extends: ['@liuchengjin/eslint-config/simple-nest'],
   rules: {
     'no-void': 'off',
     '@typescript-eslint/no-explicit-any': 'Off',
@@ -11,4 +11,4 @@ module.exports = {
   parserOptions: {
     project: ['./tsconfig.eslint.json', './tsconfig.json', './tsconfig.build.json'],
   },
-}
+};

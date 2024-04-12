@@ -11,6 +11,10 @@ export default defineBuildConfig({
     'src/base',
     'src/base-ts',
     'src/nest-app',
+    'src/simple-base',
+    'src/simple-react',
+    'src/simple-vue',
+    'src/simple-nest',
   ],
   declaration: true, // 生成声明文件
   rollup: {

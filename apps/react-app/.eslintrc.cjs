@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['@liuchengjin/eslint-config/react-app'],
+  extends: ['@liuchengjin/eslint-config/simple-react'],
   rules: {
     'no-void': 'off',
     'react/jsx-no-undef': 'off',
