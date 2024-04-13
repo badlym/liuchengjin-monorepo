@@ -1,4 +1,4 @@
-const { defineConfig } = require('eslint-define-config')
+import { defineConfig } from 'eslint-define-config';
 
 export default defineConfig({
   // 环境配置
@@ -130,4 +130,4 @@ export default defineConfig({
     '@typescript-eslint/explicit-module-boundary-types': 'off', // 允许未显式声明导出函数的返回类型，由 TypeScript 规则 @typescript-eslint/explicit-module-boundary-types 接管
     // '@typescript-eslint/no-explicit-any': 'off', // 允许使用 any 类型，由 TypeScript 规则 @typescript-eslint/no-explicit-any 接管
   },
-})
+});
