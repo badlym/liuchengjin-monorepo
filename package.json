@@ -13,14 +13,14 @@
     "commit": "czg",
     "dev": "turbo run dev  --concurrency 20",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "postinstall": "turbo run stub",
     "lint": "turbo run lint",
     "lint-staged": "pnpm exec lint-staged",
     "ncu": "turbo run ncu",
     "ncu-root:update": "ncu -u",
     "ncu:root": "ncu ",
     "ncu:update": "turbo run ncu:update",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "ncu-root-cli": "ncu - i --format group"
   },
   "config": {
     "commitizen": {
