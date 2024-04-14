@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import FrontEnd from '@/views/home/components/FrontEnd';
+import FrontEnd from '@/views/home/components/FrontEnd/FrontEnd';
 import Order from '@/views/home/components/Order';
 import Terrain from '@/views/home/components/Terrain';
 import User from '@/views/home/components/User';

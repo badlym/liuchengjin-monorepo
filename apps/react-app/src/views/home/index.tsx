@@ -32,7 +32,7 @@ const items: MenuItem[] = [
 
 const Home: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [menuKey, setMenuKey] = useState('/user');
+  const [menuKey, setMenuKey] = useState('front-end');
   const handleMenuClick = ({ key }: { key: string }) => {
     setMenuKey(key);
   };
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
         <Menu
           theme="dark"
           onClick={handleMenuClick}
-          defaultSelectedKeys={['user']}
+          defaultSelectedKeys={['front-end']}
           mode="inline"
           items={items}
         />

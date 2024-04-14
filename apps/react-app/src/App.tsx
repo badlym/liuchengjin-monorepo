@@ -10,17 +10,17 @@ import Router from '@/routers';
 
 const App = () => {
   return (
-    <React.StrictMode>
-      <BrowserRouter basename="/">
-        <ConfigProvider locale={zhCN}>
-          <StyleProvider>
-            <AntdApp>
-              <Router />
-            </AntdApp>
-          </StyleProvider>
-        </ConfigProvider>
-      </BrowserRouter>
-    </React.StrictMode>
+    // <React.StrictMode>
+    <BrowserRouter basename="/">
+      <ConfigProvider locale={zhCN}>
+        <StyleProvider>
+          <AntdApp>
+            <Router />
+          </AntdApp>
+        </StyleProvider>
+      </ConfigProvider>
+    </BrowserRouter>
+    // </React.StrictMode>
   );
 };
 
