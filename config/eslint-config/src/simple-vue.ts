@@ -1,12 +1,9 @@
 export default {
-  // 环境配置
   env: {
     browser: true,
     node: true,
     es6: true,
   },
-
-  // 解析器配置
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
@@ -14,55 +11,66 @@ export default {
     sourceType: 'module',
     jsxPragma: 'React',
     ecmaFeatures: {
-      jsx: 'react',
+      jsx: true,
     },
     project: './tsconfig.*?.json',
     createDefaultProgram: false,
     extraFileExtensions: ['.vue'],
   },
-
-  // 插件列表
   plugins: ['vue'],
-
-  // 继承的配置
   extends: ['plugin:vue/vue3-recommended', '@liuchengjin/eslint-config/simple-base'],
-
-  // 规则配置
   rules: {
-    'no-param-reassign': ['error', { props: false }], // 允许修改函数参数的属性
-    'no-console': ['error', { allow: ['warn', 'error'] }], // 允许使用 console.warn 和 console.error
-    'import/no-absolute-path': 'off', // 允许绝对路径导入
-    'import/no-cycle': 'off', // 允许循环导入
-    'import/prefer-default-export': 'off', // 允许导出单个变量
-    // Vue 相关规则
-    'vue/no-setup-props-destructure': 'off', // 允许在 `<script setup>` 中使用解构
-    'vue/script-setup-uses-vars': 'error', // 确保 `<script setup>` 中使用的变量都在 `<script>` 中声明
-    'vue/no-reserved-component-names': 'off', // 允许使用保留的组件名
-    'vue/custom-event-name-casing': 'off', // 允许自定义事件名称不符合规范
-    'vue/attributes-order': 'off', // 允许不按顺序定义组件属性
-    'vue/one-component-per-file': 'off', // 允许一个文件中包含多个组件
-    'vue/html-closing-bracket-newline': 'off', // 允许 HTML 标签的闭合括号在新行
-    'vue/max-attributes-per-line': 'off', // 允许每行多个属性
-    'vue/multiline-html-element-content-newline': 'off', // 允许多行 HTML 元素内容
-    'vue/singleline-html-element-content-newline': 'off', // 允许单行 HTML 元素内容
-    'vue/attribute-hyphenation': 'off', // 允许属性使用连字符命名
-    'vue/require-default-prop': 'off', // 允许不要求有默认的 prop 值
-    'vue/require-explicit-emits': 'off', // 允许不要求显式声明 emits 属性
+    'no-unused-vars': 'off',
+    'no-case-declarations': 'off',
+    'no-use-before-define': 'off',
+    'space-before-function-paren': 'off',
+
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
+
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'vue/script-setup-uses-vars': 'error',
+    'vue/no-reserved-component-names': 'off',
+    'vue/custom-event-name-casing': 'off',
+    'vue/attributes-order': 'off',
+    'vue/one-component-per-file': 'off',
+    'vue/html-closing-bracket-newline': 'off',
+    'vue/max-attributes-per-line': 'off',
+    'vue/multiline-html-element-content-newline': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/attribute-hyphenation': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/require-explicit-emits': 'off',
     'vue/html-self-closing': [
       'error',
       {
         html: {
-          void: 'always', // 要求空元素自闭合
-          normal: 'never', // 不要求普通元素自闭合
-          component: 'always', // 要求组件元素自闭合
+          void: 'always',
+          normal: 'never',
+          component: 'always',
         },
-        svg: 'always', // 要求 svg 元素自闭合
-        math: 'always', // 要求 math 元素自闭合
+        svg: 'always',
+        math: 'always',
       },
     ],
-    'vue/multi-word-component-names': 'off', // 允许组件名称不使用多个单词
-
-    // 其他规则
+    'vue/multi-word-component-names': 'off',
     // 'sort-imports': [
     //   'error',
     //   {
@@ -74,7 +82,5 @@ export default {
     //   },
     // ],
   },
-
-  // 全局变量
   globals: { defineOptions: 'readonly' },
 };

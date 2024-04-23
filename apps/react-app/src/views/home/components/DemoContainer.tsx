@@ -4,6 +4,7 @@ import FrontEnd from '@/views/home/components/FrontEnd/FrontEnd';
 import Order from '@/views/home/components/Order';
 import Terrain from '@/views/home/components/Terrain';
 import User from '@/views/home/components/User';
+import TinyMce from '@/views/home/components/tinymce';
 
 const DemoContainer: FC<{
   menuKey: string;
@@ -17,6 +18,9 @@ const DemoContainer: FC<{
       return <Order />;
     case 'three':
       return <Terrain />;
+    case 'tinymce':
+      return <TinyMce />;
+
     default:
       return <div>暂无内容</div>;
   }

@@ -2,6 +2,7 @@ import { Button } from 'antd';
 import { observer } from 'mobx-react-lite';
 
 import { buttonStyle, totalStyle } from './FrontEnd.css';
+import './index.css';
 
 const FrontEnd = observer(() => {
   const { counterStore } = useMst();
@@ -36,6 +37,9 @@ const FrontEnd = observer(() => {
         点击弹窗
       </Button>
       <div className={totalStyle}>计算属性相加 is {counterStore.totalCount}</div>
+      <div className={'parent'}>
+        <div className={'child'}></div>
+      </div>
       <div>
         <DraggableModal
           // ref={draggableRef}

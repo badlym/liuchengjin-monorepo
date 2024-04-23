@@ -28,11 +28,12 @@ const items: MenuItem[] = [
   getItem('用户', 'user', <DesktopOutlined />),
   getItem('工单', 'order', <FileOutlined />),
   getItem('three', 'three', <FileOutlined />),
+  getItem('富文本', 'tinymce', <FileOutlined />),
 ];
 
 const Home: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [menuKey, setMenuKey] = useState('front-end');
+  const [menuKey, setMenuKey] = useState('tinymce');
   const handleMenuClick = ({ key }: { key: string }) => {
     setMenuKey(key);
   };
@@ -47,7 +48,7 @@ const Home: React.FC = () => {
         <Menu
           theme="dark"
           onClick={handleMenuClick}
-          defaultSelectedKeys={['front-end']}
+          defaultSelectedKeys={['tinymce']}
           mode="inline"
           items={items}
         />
