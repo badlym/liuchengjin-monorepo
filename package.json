@@ -8,7 +8,7 @@
   "scripts": {
     "bootstrap": "pnpm install",
     "build": "turbo run build",
-    "clean": "turbo run clean",
+    "clean": "turbo run clean    ",
     "clean:root": " rimraf node_modules",
     "commit": "czg",
     "dev": "turbo run dev  --concurrency 20",

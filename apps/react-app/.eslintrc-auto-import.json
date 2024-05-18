@@ -49,6 +49,15 @@
     "useSearchParams": true,
     "useState": true,
     "useSyncExternalStore": true,
-    "useTransition": true
+    "useTransition": true,
+    "DraggableModal": true,
+    "Base": true,
+    "mixin": true,
+    "childModel": true,
+    "bar": true,
+    "HighlightLevelEnum": true,
+    "child2Model": true,
+    "Sider": true,
+    "SiderDemo": true
   }
 }

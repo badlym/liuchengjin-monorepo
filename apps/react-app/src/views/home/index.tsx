@@ -1,7 +1,7 @@
 import { DesktopOutlined, FileOutlined, PieChartOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Layout, Menu, theme } from 'antd';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import DemoContainer from '@/views/home/components/DemoContainer';
 
@@ -23,16 +23,19 @@ function getItem(
   } as MenuItem;
 }
 
-const items: MenuItem[] = [
-  getItem('前端演示', 'front-end', <PieChartOutlined />),
-  getItem('用户', 'user', <DesktopOutlined />),
-  getItem('工单', 'order', <FileOutlined />),
-  getItem('three', 'three', <FileOutlined />),
-];
-
 const Home: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const [menuKey, setMenuKey] = useState('/user');
+  const [menuKey, setMenuKey] = useState('front-end');
+  const items: MenuItem[] = useMemo(() => {
+    return [
+      getItem('前端演示', 'front-end', <PieChartOutlined />),
+      getItem('用户', 'user', <DesktopOutlined />),
+      getItem('工单', 'order', <FileOutlined />),
+      getItem('three', 'three', <FileOutlined />),
+      getItem('konva', 'konva', <FileOutlined />),
+      // getItem('富文本', 'tinymce', <FileOutlined />),
+    ];
+  }, [menuKey]);
   const handleMenuClick = ({ key }: { key: string }) => {
     setMenuKey(key);
   };
@@ -47,7 +50,7 @@ const Home: React.FC = () => {
         <Menu
           theme="dark"
           onClick={handleMenuClick}
-          defaultSelectedKeys={['user']}
+          defaultSelectedKeys={['tinymce']}
           mode="inline"
           items={items}
         />

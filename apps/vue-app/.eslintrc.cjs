@@ -8,7 +8,5 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off', // 禁止使用any
     'no-console': 'off', // 关闭禁止使用console
   },
-  parserOptions: {
-    project: ['./tsconfig.eslint.json', './tsconfig.json'],
-  },
+
 }

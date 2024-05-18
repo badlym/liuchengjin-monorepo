@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import { ref } from 'vue';
 
+  import Parent from '@/components/Parent.vue';
+
   defineProps<{ msg: string }>();
 
   const count = ref(0);
@@ -15,6 +17,9 @@
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
     </p>
+  </div>
+  <div>
+    <Parent />
   </div>
 
   <p>

@@ -1,4 +1,4 @@
-import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders';
 import {
   defineConfig,
   presetAttributify,
@@ -6,13 +6,17 @@ import {
   presetTypography,
   presetUno,
   presetWebFonts,
-} from 'unocss'
+} from 'unocss';
 
 export default defineConfig({
+  content: {
+    filesystem: ['**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}'],
+  },
+
   presets: [
     presetUno({
       attributifyPseudo: true,
-      prefix: 'tw-',
+      prefix: 'zgg-',
     }),
     presetAttributify(),
     // @see https://unocss.dev/presets/icons#autoinstall
@@ -37,4 +41,4 @@ export default defineConfig({
       },
     }),
   ],
-})
+});

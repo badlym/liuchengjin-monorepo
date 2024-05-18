@@ -1,24 +1,32 @@
-import type { FC } from 'react'
+import { FC } from 'react';
 
-import FrontEnd from '@/views/home/components/FrontEnd'
-import Order from '@/views/home/components/Order'
-import Terrain from '@/views/home/components/Terrain'
-import User from '@/views/home/components/User'
+import FrontEnd from '@/views/home/components/FrontEnd/FrontEnd';
+import Order from '@/views/home/components/Order';
+import SiderDemo from '@/views/home/components/SiderDemo';
+import User from '@/views/home/components/User';
+import Konva from '@/views/home/components/konva';
 
 const DemoContainer: FC<{
-  menuKey: string
+  menuKey: string;
 }> = (props) => {
   switch (props.menuKey) {
     case 'front-end':
-      return <FrontEnd />
+      return <FrontEnd />;
     case 'user':
-      return <User />
+      return <User />;
     case 'order':
-      return <Order />
+      return <Order />;
     case 'three':
-      return <Terrain />
+      return <SiderDemo />;
+    // return <Terrain />;
+    case 'tinymce':
+      break;
+    // return <TinyMce />;
+    case 'konva':
+      return <Konva />;
+
     default:
-      return <div>暂无内容</div>
+      return <div>暂无内容</div>;
   }
-}
-export default DemoContainer
+};
+export default DemoContainer;
