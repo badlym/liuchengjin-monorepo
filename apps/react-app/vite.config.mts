@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 // @ts-ignore
 import { defineApplicationConfig } from '@liuchengjin/vite-config/react';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
-
+import { VitePWA } from 'vite-plugin-pwa'
 import UnoCSS from 'unocss/vite';
 // https://vitejs.dev/config/
 const root = process.cwd();
@@ -17,7 +17,7 @@ export default defineApplicationConfig({
     plugins: [
       vanillaExtractPlugin(),
       UnoCSS(),
-      //
+
       // VitePWA({
       //   // PWA 插件的配置选项
       //   registerType: 'autoUpdate',

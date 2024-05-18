@@ -3,25 +3,18 @@ import { createContext, useContext } from 'react';
 
 import { CounterStore } from './Counter';
 
-const RootModel = types
-  .model({
-    // counterStore: types.optional(CounterStore, {}),
-    counterStore: CounterStore,
-  })
-  .actions((self) => ({
-    afterCreate() {},
-  }));
+const RootModel = types.model({
+  // counterStore: types.optional(CounterStore, {}),
+  counterStore: types.optional(CounterStore, {}),
+  // childStore: types.optional(childModel, {}),
+  // childStore2: types.optional(child2Model, {}),
+});
+
 // .actions((self) => ({
 //   afterCreate() {},
 // }));
 
-const initialState = RootModel.create({
-  counterStore: {
-    key: 'counterStore',
-    syncCount: 0,
-    asyncCount: 0,
-  },
-});
+const initialState = RootModel.create();
 
 // const data = localStorage.getItem('rootState')
 // if (data) {

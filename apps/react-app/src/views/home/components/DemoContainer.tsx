@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import FrontEnd from '@/views/home/components/FrontEnd/FrontEnd';
 import Order from '@/views/home/components/Order';
-import Terrain from '@/views/home/components/Terrain';
+import SiderDemo from '@/views/home/components/SiderDemo';
 import User from '@/views/home/components/User';
-import TinyMce from '@/views/home/components/tinymce';
+import Konva from '@/views/home/components/konva';
 
 const DemoContainer: FC<{
   menuKey: string;
@@ -17,9 +17,13 @@ const DemoContainer: FC<{
     case 'order':
       return <Order />;
     case 'three':
-      return <Terrain />;
+      return <SiderDemo />;
+    // return <Terrain />;
     case 'tinymce':
-      return <TinyMce />;
+      break;
+    // return <TinyMce />;
+    case 'konva':
+      return <Konva />;
 
     default:
       return <div>暂无内容</div>;

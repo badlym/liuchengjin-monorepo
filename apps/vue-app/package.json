@@ -19,15 +19,15 @@
     "@liuchengjin/ts-config": "workspace:^",
     "@liuchengjin/vite-config": "workspace:^",
     "@vueuse/core": "^10.9.0",
-    "ant-design-vue": "^4.2.0",
+    "ant-design-vue": "^4.2.1",
     "pinia": "^2.1.7",
     "unocss": "^0.59.4",
     "unplugin-vue-components": "^0.26.0",
-    "vue": "^3.4.23",
+    "vue": "^3.4.25",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.203",
+    "@iconify/json": "^2.2.204",
     "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.4.5",
     "vite": "^5.2.10",

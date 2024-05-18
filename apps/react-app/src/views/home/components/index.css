@@ -1,0 +1,19 @@
+.item1 {
+  background: lightsalmon;
+}
+.item2 {
+  background: hotpink;
+}
+.item3 {
+  background: lightgreen;
+}
+.item1,
+.item2,
+.item3 {
+  flex-grow: 1;
+  flex-shrink: 1;
+flex-basis: auto;
+}
+.wrapper {
+  display: flex;
+}
