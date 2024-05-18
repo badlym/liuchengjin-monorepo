@@ -1,6 +1,9 @@
 import antfu from '@antfu/eslint-config'
 
-export default antfu({
-  vue: false,
-  typescript: true,
-})
+export default function config(options) {
+  return antfu({
+    vue: false,
+    typescript: true,
+    ...options,
+  })
+}
