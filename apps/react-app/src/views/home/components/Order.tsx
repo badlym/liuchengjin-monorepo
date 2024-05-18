@@ -8,7 +8,7 @@ import { useRef } from 'react'
 import { createApi, deleteByIdApi, findAllApi, updateByIdApi } from '@/api/order'
 import { findAllApi as findAllUserApi } from '@/api/user'
 
-const request = async () => {
+async function request() {
   const res = await findAllUserApi({})
 
   return res.map((item) => {
@@ -108,11 +108,10 @@ export default () => {
       editable={{
         type: 'multiple',
         async onSave(_, row, _originRow, newLineConfig) {
-          if (newLineConfig) {
+          if (newLineConfig)
             await createApi(omit(row, 'id'))
-          } else {
+          else
             await updateByIdApi(row)
-          }
         },
       }}
       columnsState={{

@@ -1,12 +1,14 @@
 {
   "name": "@liuchengjin/react-app",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "vite build",
     "dev": "vite  ",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint .  ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint1": "eslint . ",
+    "lint:fix": "eslint . --fix",
     "lint-staged": "pnpm exec lint-staged",
     "ncu": "ncu",
     "ncu:update": "ncu -u",

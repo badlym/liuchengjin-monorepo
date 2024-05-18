@@ -2,20 +2,20 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@liuchengjin/ts-config/react.json",
   "compilerOptions": {
-    "jsx": "preserve",
-    "allowJs": true,//允许编译js
+    "jsx": "preserve", // 允许编译js
     "baseUrl": ".",
-    "types": ["vite/client"],
+
+    "moduleResolution": "node",
     "paths": {
       "/@/*": ["src/*"],
       "/#/*": ["types/*"],
       "@/*": ["src/*"],
       "#/*": ["types/*"]
     },
-    "noUnusedLocals": false,
-
-    "moduleResolution": "node",
-    "noImplicitAny": false
+    "types": ["vite/client"],
+    "allowJs": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": false
   },
 
   "include": [

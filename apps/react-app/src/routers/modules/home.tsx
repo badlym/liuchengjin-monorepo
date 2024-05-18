@@ -1,4 +1,4 @@
-import { RouteObject } from '@/routers/interface'
+import type { RouteObject } from '@/routers/interface'
 import Home from '@/views/home/index'
 
 // 首页模块

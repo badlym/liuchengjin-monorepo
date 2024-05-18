@@ -16,11 +16,11 @@
     "lint": "turbo run lint",
     "lint-staged": "pnpm exec lint-staged",
     "ncu": "turbo run ncu",
+    "ncu-root-cli": "ncu - i --format group",
     "ncu-root:update": "ncu -u",
     "ncu:root": "ncu ",
     "ncu:update": "turbo run ncu:update",
-    "prepare": "husky install",
-    "ncu-root-cli": "ncu - i --format group"
+    "prepare": "husky install"
   },
   "config": {
     "commitizen": {
@@ -50,7 +50,6 @@
     "turbo": "latest",
     "unbuild": "^2.0.0"
   },
-  "packageManager": "pnpm@8.6.10",
   "publishConfig": {
     "access": "public"
   }

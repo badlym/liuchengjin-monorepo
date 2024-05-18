@@ -1,6 +1,6 @@
 import { resolve } from 'node:path';
 
-// @ts-ignore
+// @ts-expect-error
 import { defineApplicationConfig } from '@liuchengjin/vite-config/react';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 

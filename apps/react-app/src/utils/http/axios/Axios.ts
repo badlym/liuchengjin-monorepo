@@ -8,11 +8,11 @@ import type {
 import axios from 'axios'
 import { cloneDeep } from 'lodash-es'
 import qs from 'qs'
+import { AxiosCanceler } from './axiosCancel'
+import type { CreateAxiosOptions } from './axiosTransform'
 import { isFunction } from '@/utils/is'
 import { ContentTypeEnum, RequestEnum } from '@/enums/httpEnum'
 import type { RequestOptions, Result, UploadFileParams } from '#/axios'
-import { AxiosCanceler } from './axiosCancel'
-import type { CreateAxiosOptions } from './axiosTransform'
 
 export * from './axiosTransform'
 
@@ -50,9 +50,9 @@ export class VAxios {
    * @description: Reconfigure axios
    */
   configAxios(config: CreateAxiosOptions) {
-    if (!this.axiosInstance) {
+    if (!this.axiosInstance)
       return
-    }
+
     this.createAxios(config)
   }
 
@@ -60,9 +60,9 @@ export class VAxios {
    * @description: Set general header
    */
   setHeader(headers: any): void {
-    if (!this.axiosInstance) {
+    if (!this.axiosInstance)
       return
-    }
+
     Object.assign(this.axiosInstance.defaults.headers, headers)
   }
 
@@ -75,9 +75,9 @@ export class VAxios {
       axiosInstance,
       options: { transform },
     } = this
-    if (!transform) {
+    if (!transform)
       return
-    }
+
     const {
       requestInterceptors,
       requestInterceptorsCatch,
@@ -96,37 +96,37 @@ export class VAxios {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       !ignoreCancelToken && axiosCanceler.addPending(config)
 
-      if (requestInterceptors && isFunction(requestInterceptors)) {
-        // eslint-disable-next-line no-param-reassign
+      if (requestInterceptors && isFunction(requestInterceptors))
+
         config = requestInterceptors(config, this.options)
-      }
+
       return config
     }, undefined)
 
     // Request interceptor error capture
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    requestInterceptorsCatch &&
-      isFunction(requestInterceptorsCatch) &&
-      this.axiosInstance.interceptors.request.use(undefined, requestInterceptorsCatch)
+    requestInterceptorsCatch
+    && isFunction(requestInterceptorsCatch)
+    && this.axiosInstance.interceptors.request.use(undefined, requestInterceptorsCatch)
 
     // Response result interceptor processing
     this.axiosInstance.interceptors.response.use((res: AxiosResponse<any>) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       res && axiosCanceler.removePending(res.config)
-      if (responseInterceptors && isFunction(responseInterceptors)) {
-        // eslint-disable-next-line no-param-reassign
+      if (responseInterceptors && isFunction(responseInterceptors))
+
         res = responseInterceptors(res)
-      }
+
       return res
     }, undefined)
 
     // Response result interceptor error capture
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    responseInterceptorsCatch &&
-      isFunction(responseInterceptorsCatch) &&
-      this.axiosInstance.interceptors.response.use(undefined, (error) => {
-        return responseInterceptorsCatch(axiosInstance, error)
-      })
+    responseInterceptorsCatch
+    && isFunction(responseInterceptorsCatch)
+    && this.axiosInstance.interceptors.response.use(undefined, (error) => {
+      return responseInterceptorsCatch(axiosInstance, error)
+    })
   }
 
   /**
@@ -136,15 +136,14 @@ export class VAxios {
     const formData = new window.FormData()
     const customFilename = params.name || 'file'
 
-    if (params.filename) {
+    if (params.filename)
       formData.append(customFilename, params.file, params.filename)
-    } else {
+    else
       formData.append(customFilename, params.file)
-    }
 
     if (params.data) {
       Object.keys(params.data).forEach((key) => {
-        // @ts-ignore
+        // @ts-expect-error
         const value = params.data[key]
         if (Array.isArray(value)) {
           value.forEach((item) => {
@@ -153,7 +152,7 @@ export class VAxios {
           return
         }
 
-        // @ts-ignore
+        // @ts-expect-error
         formData.append(key, params.data[key])
       })
     }
@@ -164,8 +163,7 @@ export class VAxios {
       data: formData,
       headers: {
         'Content-type': ContentTypeEnum.FORM_DATA,
-        // @ts-ignore
-        ignoreCancelToken: true,
+        'ignoreCancelToken': true,
       },
     })
   }
@@ -176,12 +174,11 @@ export class VAxios {
     const contentType = headers?.['Content-Type'] || headers?.['content-type']
 
     if (
-      contentType !== ContentTypeEnum.FORM_URLENCODED ||
-      !Reflect.has(config, 'data') ||
-      config.method?.toUpperCase() === RequestEnum.GET
-    ) {
+      contentType !== ContentTypeEnum.FORM_URLENCODED
+      || !Reflect.has(config, 'data')
+      || config.method?.toUpperCase() === RequestEnum.GET
+    )
       return config
-    }
 
     return {
       ...config,
@@ -208,9 +205,8 @@ export class VAxios {
   request<T = any>(config: AxiosRequestConfig, options?: RequestOptions): Promise<T> {
     let conf: CreateAxiosOptions = cloneDeep(config)
     // cancelToken 如果被深拷贝，会导致最外层无法使用cancel方法来取消请求
-    if (config.cancelToken) {
+    if (config.cancelToken)
       conf.cancelToken = config.cancelToken
-    }
 
     const transform = this.getTransform()
 
@@ -219,9 +215,9 @@ export class VAxios {
     const opt: RequestOptions = { ...requestOptions, ...options }
 
     const { beforeRequestHook, requestCatchHook, transformResponseHook } = transform || {}
-    if (beforeRequestHook && isFunction(beforeRequestHook)) {
+    if (beforeRequestHook && isFunction(beforeRequestHook))
       conf = beforeRequestHook(conf, opt)
-    }
+
     conf.requestOptions = opt
 
     conf = this.supportFormData(conf)
@@ -234,7 +230,8 @@ export class VAxios {
             try {
               const ret = await transformResponseHook(res, opt, this.axiosInstance, this.options)
               resolve(ret)
-            } catch (err) {
+            }
+            catch (err) {
               reject(err || new Error('request error!'))
             }
             return

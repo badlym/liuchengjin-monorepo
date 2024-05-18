@@ -17,5 +17,5 @@
 // };
 import { defineFlatConfig } from 'eslint-define-config';
 
-import baseConfig from './base';
+import baseConfig from './base.js';
 export default defineFlatConfig([...baseConfig]);

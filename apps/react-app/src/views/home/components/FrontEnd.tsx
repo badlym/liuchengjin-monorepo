@@ -1,28 +1,34 @@
-import { observer } from 'mobx-react-lite';
+import { observer } from 'mobx-react-lite'
 
-import { useMst } from '@/store';
-
-import { buttonStyle, totalStyle } from './FrontEnd.css';
+import { buttonStyle, totalStyle } from './FrontEnd.css'
+import { useMst } from '@/store'
 
 const FrontEnd = observer(() => {
-  const { counterStore } = useMst();
+  const { counterStore } = useMst()
   const setSyncCount = () => {
-    counterStore.setSyncIncrement();
-  };
+    counterStore.setSyncIncrement()
+  }
   const setAsyncCount = () => {
-    void counterStore.setAsyncIncrement();
-  };
+    void counterStore.setAsyncIncrement()
+  }
 
   return (
     <div>
       <button className={buttonStyle} onClick={setSyncCount}>
-        同步新增 is {counterStore.syncCount}
+        同步新增 is
+        {' '}
+        {counterStore.syncCount}
       </button>
       <button className={buttonStyle} onClick={setAsyncCount}>
-        异步新增 is {counterStore.asyncCount}
+        异步新增 is
+        {' '}
+        {counterStore.asyncCount}
       </button>
-      <div className={totalStyle}>计算属性相加 is {counterStore.totalCount}</div>
+      <div className={totalStyle}>
+        计算属性相加 is
+        {counterStore.totalCount}
+      </div>
     </div>
-  );
-});
-export default FrontEnd;
+  )
+})
+export default FrontEnd

@@ -8,7 +8,7 @@ import DemoContainer from '@/views/home/components/DemoContainer';
 const { Header, Content, Footer, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>['items'][number];
-
+interface Iprops {}
 function getItem(
   label: React.ReactNode,
   key: React.Key,
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
   } = theme.useToken();
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+      <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
         <div className="tw-h-[50px]" />
         <Menu
           theme="dark"
