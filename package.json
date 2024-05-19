@@ -8,7 +8,7 @@
   "scripts": {
     "bootstrap": "pnpm install",
     "build": "turbo run build",
-    "clean": "turbo run clean    ",
+    "clean": "turbo run clean ",
     "clean:root": " rimraf node_modules",
     "commit": "czg",
     "dev": "turbo run dev  --concurrency 20",
@@ -20,7 +20,8 @@
     "ncu-root:update": "ncu -u",
     "ncu:root": "ncu ",
     "ncu:update": "turbo run ncu:update",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "turbo run stub"
   },
   "config": {
     "commitizen": {
@@ -35,8 +36,8 @@
     "@liuchengjin/release-it-config": "workspace:^",
     "@liuchengjin/stylelint-config": "workspace:^",
     "@liuchengjin/ts-config": "workspace:^",
-    "cz-git": "^1.8.0",
-    "czg": "^1.8.0",
+    "cz-git": "^1.9.1",
+    "czg": "^1.9.1",
     "husky": "^8.0.3",
     "lint-staged": "15.2.0"
   },
@@ -44,8 +45,8 @@
     "@b12k/mvm": "0.0.10",
     "@commitlint/cli": "18.4.4",
     "@commitlint/config-conventional": "18.4.4",
-    "@turbo/gen": "^1.11.3",
-    "@types/node": "^20.11.5",
+    "@turbo/gen": "^1.13.3",
+    "@types/node": "^20.12.12",
     "release-it": "17.0.1",
     "turbo": "latest",
     "unbuild": "^2.0.0"

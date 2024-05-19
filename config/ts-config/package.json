@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@liuchengjin/release-it-config": "workspace:^",
-    "@types/node": "^20.11.5",
-    "unplugin-vue-define-options": "^1.4.1"
+    "@types/node": "^20.12.12",
+    "unplugin-vue-define-options": "^1.4.4"
   },
   "publishConfig": {
     "access": "public"
