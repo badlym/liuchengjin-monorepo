@@ -29,9 +29,9 @@
     "stub": "pnpm unbuild --stub"
   },
   "dependencies": {
+    "@commitlint/config-conventional": "18.4.4",
     "@liuchengjin/eslint-config": "workspace:^",
-    "@liuchengjin/release-it-config": "workspace:^",
-    "@commitlint/config-conventional": "18.4.4"
+    "@liuchengjin/release-it-config": "workspace:^"
   },
   "publishConfig": {
     "access": "public"
