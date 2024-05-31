@@ -58,6 +58,7 @@
     "HighlightLevelEnum": true,
     "child2Model": true,
     "Sider": true,
-    "SiderDemo": true
+    "SiderDemo": true,
+    "Table": true
   }
 }

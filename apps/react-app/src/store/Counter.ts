@@ -14,11 +14,11 @@ export const CounterStore = Base.named('CounterStore')
     asyncCount: types.optional(types.number, 0),
     generateMap: types.map(generate),
     name: types.optional(types.string, '这是conterStore的名字'),
+    textArr: types.optional(types.array(types.string), ['这是数组']),
     // age: types.optional(types.number, 18),
   })
   .actions((self) => ({
     afterCreate() {
-      debugger;
       console.log('数字模型的生命周期');
     },
     logInfo() {
@@ -39,6 +39,8 @@ export const CounterStore = Base.named('CounterStore')
     setSyncIncrement() {
       // eslint-disable-next-line no-plusplus
       self.syncCount++;
+
+      self.textArr.push('文字');
     },
     getMap() {
       console.log(self.generateMap);

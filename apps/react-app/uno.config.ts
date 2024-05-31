@@ -16,7 +16,7 @@ export default defineConfig({
   presets: [
     presetUno({
       attributifyPseudo: true,
-      prefix: 'zgg-',
+      // prefix: '',
     }),
     presetAttributify(),
     // @see https://unocss.dev/presets/icons#autoinstall

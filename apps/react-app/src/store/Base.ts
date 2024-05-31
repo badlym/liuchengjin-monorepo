@@ -16,7 +16,6 @@ export const Base = types
   }))
   .actions((self) => ({
     afterCreate() {
-      debugger;
       console.log('基础信息的生命周期');
     },
     logInfo() {
@@ -72,7 +71,6 @@ const Square = types
   .actions((self) => {
     return {
       afterCreate() {
-        debugger;
         console.log('父模型');
       },
       info() {
@@ -93,7 +91,6 @@ const Box = Square.named('Box')
   .actions((self) => {
     return {
       afterCreate() {
-        debugger;
         console.log('子模型');
       },
       // info() {

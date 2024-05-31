@@ -1,9 +1,11 @@
 import { Button, Space } from 'antd';
 import { observer } from 'mobx-react-lite';
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 
 import { buttonStyle, totalStyle } from './FrontEnd.css';
 import './index.css';
+
+import CustomTable from './components/Table';
 
 export enum HighlightLevelEnum {
   高相关性 = 1,
@@ -43,7 +45,24 @@ const FrontEnd = observer(() => {
     console.log(values);
     counterStore.logInfo();
   };
-  const flag = true;
+
+  const calNum = (text) => {
+    return counterStore.textArr.length;
+  };
+
+  const textNum = calNum();
+
+  const menoNum = useMemo(() => {
+    debugger;
+    console.log('textArr', counterStore.textArr);
+    return counterStore.textArr.length;
+  }, [counterStore.textArr]);
+
+  const num = useMemo(() => {
+    const value = 0;
+    return value + 1;
+  }, [counterStore.textArr]);
+
   return (
     <div>
       <Space>
@@ -78,107 +97,21 @@ const FrontEnd = observer(() => {
           <Button type={'primary'} onClick={onButtonClick} className={'tw-ml-4'}>
             打印map
           </Button>
-
-          {/*{flag && (*/}
-          {/*  <Tooltip*/}
-          {/*    className={'zgg-absolute'}*/}
-          {/*    placement={'top'}*/}
-          {/*    overlayInnerStyle={{ boxShadow: 'none', padding: 0 }}*/}
-          {/*    open={true}*/}
-          {/*    title={*/}
-          {/*      <Alert*/}
-          {/*        className={'zgg-w-2xl'}*/}
-          {/*        message="pushcenter返回的错误信息"*/}
-          {/*        description={*/}
-          {/*          <Space direction={'vertical'}>*/}
-          {/*            <div className={'zgg-flex'}>*/}
-          {/*              <Typography.Title type={'danger'} level={5}>*/}
-          {/*                错误状态码-status*/}
-          {/*              </Typography.Title>*/}
-
-          {/*              <Typography.Text className={'zgg-ml-4'}>1</Typography.Text>*/}
-          {/*            </div>*/}
-          {/*            <div className={'zgg-flex'}>*/}
-          {/*              <Typography.Title type={'danger'} level={5}>*/}
-          {/*                错误来源-from*/}
-          {/*              </Typography.Title>*/}
-
-          {/*              <Typography.Text className={'zgg-ml-4'}>1</Typography.Text>*/}
-          {/*            </div>*/}
-
-          {/*            <div>*/}
-          {/*              <Typography.Title type={'danger'} level={5}>*/}
-          {/*                错误内容-content*/}
-          {/*              </Typography.Title>*/}
-
-          {/*              <Typography.Text>*/}
-          {/*                阿斯顿发大水范德萨发撒*/}
-          {/*                但是发多少范德萨发收到发多少发多少撒多福多寿范德萨发阿萨德发第三撒旦法大师傅时段是的范德萨*/}
-          {/*              </Typography.Text>*/}
-          {/*            </div>*/}
-          {/*            <div></div>*/}
-          {/*          </Space>*/}
-          {/*        }*/}
-          {/*        type="error"*/}
-          {/*        closable*/}
-          {/*      />*/}
-          {/*    }*/}
-          {/*  >*/}
-          {/*    <div*/}
-          {/*      style={{*/}
-          {/*        left: '50%',*/}
-          {/*        top: '0',*/}
-          {/*        transform: 'translate(-50%, -50%)',*/}
-          {/*      }}*/}
-          {/*      className={'zgg-absolute '}*/}
-          {/*    ></div>*/}
-          {/*  </Tooltip>*/}
-          {/*)}*/}
         </div>
       </Space>
-      {/*<Alert*/}
-      {/*  style={{ position: 'absolute', top: 0, right: 0 }}*/}
-      {/*  banner={true}*/}
-      {/*  message="Error Text"*/}
-      {/*  description="Error Description Error Description Error Description Error Description Error Description Error Description"*/}
-      {/*  type="error"*/}
-      {/*  closable*/}
-      {/*/>*/}
+
       <div>{counterStore.addAge}年龄</div>
-
       <div className={totalStyle}>计算属性相加 is {counterStore.totalCount}</div>
-      <h1 className={'  mt-20px prose prose-red '}>文字预设</h1>
-      <div className={'zgg-flex zgg-w-full zgg-h-[500px] zgg-bg-red zgg-flex-col '}>
-        <div
-          className={'zgg-h-[74px]'}
-          style={
-            {
-              // flex: '1 1 auto',
-            }
-          }
-        >
-          1
-        </div>
-        <div
-          style={{
-            flex: '1 1 ',
-          }}
-        >
-          2
-        </div>
-      </div>
-
+      <div>数字 {num}</div>
+      <div>测试数字 {textNum}</div>
       <div>
-        {/*<DraggableModal*/}
-        {/*  // ref={draggableRef}*/}
-        {/*  modalMinWidth={400}*/}
-        {/*  modalMinHeight={20}*/}
-        {/*  width={800}*/}
-        {/*  title="Basic Modal"*/}
-        {/*  open={isModalOpen}*/}
-        {/*  onOk={handleOk}*/}
-        {/*  onCancel={handleCancel}*/}
-        {/*></DraggableModal>*/}
+        监听mst数组得到的数字
+        {menoNum}
+        {JSON.stringify(counterStore.textArr)}
+      </div>
+      <h1 className={'  mt-20px prose prose-red '}>文字预设</h1>
+      <div>
+        <CustomTable></CustomTable>
       </div>
     </div>
   );
