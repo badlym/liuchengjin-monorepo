@@ -36,6 +36,8 @@ interface EditableCellProps {
   handleSave: (record: Item) => void;
 }
 
+console.log('测试变基');
+
 const EditableCell: React.FC<EditableCellProps> = ({
   title,
   editable,
