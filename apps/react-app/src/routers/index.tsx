@@ -1,34 +1,30 @@
-import { Navigate, useRoutes } from 'react-router-dom'
+import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 
-import { RouteObject } from '@/routers/interface'
+import lazyLoad from '@/routers/lazyLoad'
+import Home from '@/views/home'
 
-// * 导入所有router
-const metaRouters = import.meta.glob('./modules/*.tsx', { eager: true })
-
-// * 处理路由
-
-export const routerArray: RouteObject[] = []
-Object.keys(metaRouters).forEach((item) => {
-  // @ts-ignore
-  Object.keys(metaRouters[item]).forEach((key: any) => {
-    // @ts-ignore
-    routerArray.push(...metaRouters[item][key])
-  })
-})
-
-export const rootRouter: RouteObject[] = [
+// @ts-ignore
+export const router: RouteObject[] = createBrowserRouter([
   {
     path: '/',
-    element: <Navigate to="/home" />,
+    element: lazyLoad(lazy(() => import('@/views/home'))),
+    children: [
+      {
+        index: true, // 索引路由，即默认显示的子路由
+        element: <Navigate to="front-end" replace />,
+      },
+      {
+        path: 'front-end',
+        element: lazyLoad(lazy(() => import('@/views/home/components/FrontEnd/FrontEnd'))),
+      },
+      {
+        path: 'user',
+        element: lazyLoad(lazy(() => import('@/views/user'))),
+      },
+      {
+        path: 'order',
+        element: lazyLoad(lazy(() => import('@/views/order'))),
+      },
+    ],
   },
-
-  ...routerArray,
-]
-
-const Router = () => {
-  // @ts-ignore
-  const routes = useRoutes(rootRouter)
-  return routes
-}
-
-export default Router
+])

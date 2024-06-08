@@ -1,67 +1,67 @@
-import { Button, Space } from 'antd';
-import { observer } from 'mobx-react-lite';
-import React, { useCallback, useMemo } from 'react';
+import { Button, Space } from 'antd'
+import { observer } from 'mobx-react-lite'
+import React, { useCallback, useMemo } from 'react'
 
-import { buttonStyle, totalStyle } from './FrontEnd.css';
-import './index.css';
+import { buttonStyle, totalStyle } from './FrontEnd.css'
+import './index.css'
 
-import CustomTable from './components/Table';
+import CustomTable from './components/Table'
 
 export enum HighlightLevelEnum {
   高相关性 = 1,
   中相关性 = 2,
   低相关性 = 3,
 }
+
 const FrontEnd = observer(() => {
-  const { counterStore } = useMst();
+  const { counterStore } = useMst()
   const setSyncCount = () => {
-    counterStore.setSyncIncrement();
-  };
+    counterStore.setSyncIncrement()
+  }
   const setAsyncCount = () => {
-    void counterStore.setAsyncIncrement();
-  };
-  const [isModalOpen, setIsModalOpen] = useState(false);
+    void counterStore.setAsyncIncrement()
+  }
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const onButtonClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
-    console.log(event);
-    counterStore.getMap();
-  }, []);
+    console.log(event)
+    counterStore.getMap()
+  }, [])
 
   const showModal = () => {
-    setIsModalOpen(true);
-  };
+    setIsModalOpen(true)
+  }
 
   const handleOk = () => {
-    setIsModalOpen(false);
-  };
+    setIsModalOpen(false)
+  }
 
   const handleCancel = () => {
-    setIsModalOpen(false);
-  };
+    setIsModalOpen(false)
+  }
   const logName = () => {
     // counterStore.logName();
-  };
+  }
   const logInfo = () => {
-    const values = Object.values(HighlightLevelEnum);
-    console.log(values);
-    counterStore.logInfo();
-  };
+    const values = Object.values(HighlightLevelEnum)
+    console.log(values)
+    counterStore.logInfo()
+  }
 
   const calNum = (text) => {
-    return counterStore.textArr.length;
-  };
+    return counterStore.textArr.length
+  }
 
-  const textNum = calNum();
+  const textNum = calNum()
 
   const menoNum = useMemo(() => {
-    debugger;
-    console.log('textArr', counterStore.textArr);
-    return counterStore.textArr.length;
-  }, [counterStore.textArr]);
+    console.log('textArr', counterStore.textArr)
+    return counterStore.textArr.length
+  }, [counterStore.textArr])
 
   const num = useMemo(() => {
-    const value = 0;
-    return value + 1;
-  }, [counterStore.textArr]);
+    const value = 0
+    return value + 1
+  }, [counterStore.textArr])
 
   return (
     <div>
@@ -114,6 +114,6 @@ const FrontEnd = observer(() => {
         <CustomTable></CustomTable>
       </div>
     </div>
-  );
-});
-export default FrontEnd;
+  )
+})
+export default FrontEnd
