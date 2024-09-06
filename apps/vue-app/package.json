@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "clean": "rimraf .turbo && rimraf node_modules",
+    "clean": "rimraf dist .turbo  node_modules",
     "ncu": "ncu",
     "ncu:update": "ncu -u",
     "preview": "vite preview",
