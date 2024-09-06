@@ -9,7 +9,7 @@
     "bootstrap": "pnpm install",
     "build": "turbo run build",
     "clean": "turbo run clean ",
-    "clean:root": " rimraf node_modules",
+    "clean:root": " rimraf node_modules pnpm-lock.yaml",
     "commit": "czg",
     "dev": "turbo run dev  --concurrency 20",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -54,5 +54,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "packageManager": "pnpm@9.0.6"
+  "packageManager": "pnpm@9.9.0"
 }
