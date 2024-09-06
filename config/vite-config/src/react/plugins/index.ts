@@ -11,24 +11,28 @@ import stylePxToVw from '../../plugins/stylePxToVw'
 import { configSvgIconsPlugin, configUnPluginIcons } from '../../plugins/svgSprite'
 import { configVisualizerConfig } from '../../plugins/visualizer'
 import { Options } from '../../types'
+import { pathResolve } from '../../utils'
 
 import replaceDebugModuleIdPlugin from './replaceDebugModuleIdPlugin'
+import resolveSrcAliasPlugin from './resolveSrcAliasPlugin'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/ban-ts-comment
 // @ts-ignore
 async function createPlugins({
-  isBuild,
-  root,
-  // _enableMock,
-  compress,
-  enableAnalyze,
-  enableStylePxToVw,
-  framework,
-  options,
-}: Options) {
+                               isBuild,
+                               root,
+                               // _enableMock,
+                               compress,
+                               enableAnalyze,
+                               enableStylePxToVw,
+                               framework,
+                               options,
+                             }: Options) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     enableStylePxToVw && stylePxToVw(),
     react(),
-
+    resolveSrcAliasPlugin({
+      appPath: pathResolve('./'),
+    }),
     createAutoImport(framework, options),
     // customCssModulesSupport(),
   ]
@@ -48,11 +52,11 @@ async function createPlugins({
   if (isBuild) {
     // rollup-plugin-gzip
     compress &&
-      vitePlugins.push(
-        configCompressPlugin({
-          compress,
-        }),
-      )
+    vitePlugins.push(
+      configCompressPlugin({
+        compress,
+      }),
+    )
   }
 
   // rollup-plugin-visualizer
