@@ -1,21 +1,38 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "pipeline": {
+  "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "build/**"
+      ]
     },
     "build:test": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "build:docker": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "docs:build": {
-      "dependsOn": ["^build"],
-      "outputs": [".vitepress/dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".vitepress/dist/**"
+      ]
     },
     "docs:dev": {
       "cache": false,
@@ -33,8 +50,10 @@
       "persistent": true
     },
     "release": {
-      "dependsOn": ["^release"],
-      "outputMode": "new-only"
+      "dependsOn": [
+        "^release"
+      ],
+      "outputLogs": "new-only"
     }
   }
 }

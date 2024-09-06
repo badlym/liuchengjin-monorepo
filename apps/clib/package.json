@@ -1,0 +1,26 @@
+{
+  "name": "clib",
+  "version": "0.1.0",
+  "private": true,
+  "description": "client side library (not include MST related)",
+  "scripts": {
+    "stub": " unbuild",
+    "clean": " rimraf .turbo node_modules dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.cjs"
+    }
+  },
+  "types": "./dist/index.d.ts"
+}

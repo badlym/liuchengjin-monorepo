@@ -3,21 +3,33 @@
   "extends": "@liuchengjin/ts-config/react.json",
   "compilerOptions": {
     "jsx": "preserve",
-    "allowJs": true,//允许编译js
+    "allowJs": true,
+    //允许编译js
     "baseUrl": ".",
-    "types": ["vite/client"],
+    "types": [
+      "vite/client"
+    ],
     "paths": {
-      "/@/*": ["src/*"],
-      "/#/*": ["types/*"],
-      "@/*": ["src/*"],
-      "#/*": ["types/*"]
+      "/@/*": [
+        "src/*"
+      ],
+      "/#/*": [
+        "types/*"
+      ],
+      "@/*": [
+        "src/*"
+      ],
+      "#/*": [
+        "types/*"
+      ],
+      "demo/*": [
+        "../react-demo/*"
+      ]
     },
     "noUnusedLocals": false,
-
     "moduleResolution": "node",
     "noImplicitAny": false
   },
-
   "include": [
     "./src/**/*.ts",
     "src/**/*.d.ts",
@@ -26,5 +38,9 @@
     "types/**/*.ts",
     "vite.config.mts"
   ],
-  "exclude": ["node_modules", "dist", "public"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public"
+  ]
 }

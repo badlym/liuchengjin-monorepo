@@ -1,20 +1,20 @@
-import { Instance, onSnapshot, types } from 'mobx-state-tree';
-import { createContext, useContext } from 'react';
+import { Instance, onSnapshot, types } from 'mobx-state-tree'
+import { createContext, useContext } from 'react'
 
-import { CounterStore } from './Counter';
+import { CounterStore } from './Counter'
 
 const RootModel = types.model({
-  // counterStore: types.optional(CounterStore, {}),
   counterStore: types.optional(CounterStore, {}),
+  // counterStore: CounterStore,
   // childStore: types.optional(childModel, {}),
   // childStore2: types.optional(child2Model, {}),
-});
+})
 
 // .actions((self) => ({
 //   afterCreate() {},
 // }));
 
-const initialState = RootModel.create();
+const initialState = RootModel.create()
 
 // const data = localStorage.getItem('rootState')
 // if (data) {
@@ -24,22 +24,23 @@ const initialState = RootModel.create();
 //   }
 // }
 
-export const rootStore = initialState;
+export const rootStore = initialState
 
 onSnapshot(rootStore, (snapshot) => {
   // eslint-disable-next-line no-console
-  console.log('Snapshot:', snapshot);
+  console.log('Snapshot:', snapshot)
   // localStorage.setItem('rootState', JSON.stringify(snapshot))
-});
+})
 
-export type RootInstance = Instance<typeof RootModel>;
-const RootStoreContext = createContext<null | RootInstance>(null);
+export type RootInstance = Instance<typeof RootModel>
+const RootStoreContext = createContext<null | RootInstance>(null)
 
-export const { Provider } = RootStoreContext;
+export const { Provider } = RootStoreContext
+
 export function useMst() {
-  const store = useContext(RootStoreContext);
+  const store = useContext(RootStoreContext)
   if (store === null) {
-    throw new Error('Store cannot be null, please add a context provider');
+    throw new Error('Store cannot be null, please add a context provider')
   }
-  return store;
+  return store
 }

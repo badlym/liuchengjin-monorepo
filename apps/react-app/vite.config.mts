@@ -1,22 +1,58 @@
-import { resolve } from 'node:path';
-
+import { resolve } from 'node:path'
+import commonjs from '@rollup/plugin-commonjs'
 // @ts-ignore
-import { defineApplicationConfig } from '@liuchengjin/vite-config/react';
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+import { defineApplicationConfig } from '@liuchengjin/vite-config/react'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { VitePWA } from 'vite-plugin-pwa'
-import UnoCSS from 'unocss/vite';
+import UnoCSS from 'unocss/vite'
+import cdn from 'vite-plugin-cdn-import'
+
 // https://vitejs.dev/config/
-const root = process.cwd();
-const pathResolve = (pathname: string) => resolve(root, '.', pathname);
+const root = process.cwd()
+const pathResolve = (pathname: string) => resolve(root, '.', pathname)
 export default defineApplicationConfig({
   overrides: {
     server: {
       host: true,
       port: 9528,
     },
+
+    optimizeDeps: {
+      // include: ['mobx', ',mobx-state-tree', 'mobx-react-lite'],
+    },
+
+    build: {
+      commonjsOptions: {
+        include: [/node_modules/, /clib/, /mobx-state-tree/, /mobx-react-lite/, /mobx/],
+      },
+    },
+
     plugins: [
       vanillaExtractPlugin(),
       UnoCSS(),
+      cdn({
+        prodUrl: 'https://static-dev.zgg.com/s/npm/{path}',
+        enableInDevMode: true,
+        modules: [
+          // {
+          //   name: 'mobx',
+          //   var: 'mobx',
+          //   path: 'mobx@6.6.1/dist/mobx.umd.production.min.js',
+          // },
+          // {
+          //   name: 'mobx-state-tree',
+          //   var: 'mobxStateTree',
+          //   path: 'mobx-state-tree@5.1.5/dist/mobx-state-tree.umd.min.js',
+          // },
+          // {
+          //   name: 'mobx-react-lite',
+          //   alias: ['mobx-react-lite'],
+          //   var: 'mobxReactLite',
+          //   path: 'mobx-react-lite@3.4.0/dist/mobxreactlite.umd.production.min.js',
+          //   prodUrl: 'https://unpkg.com/mobx-state-tree/dist/mobx-state-tree.umd.js',
+          // },
+        ],
+      }),
 
       // VitePWA({
       //   // PWA 插件的配置选项
@@ -54,6 +90,7 @@ export default defineApplicationConfig({
     resolve: {
       alias: [
         // /@/xxxx => src/xxxx
+        // { find: 'clib', replacement: 'clib/src' },
         {
           find: /\/@\//,
           replacement: `${pathResolve('src')}/`,
@@ -73,7 +110,12 @@ export default defineApplicationConfig({
           find: /#\//,
           replacement: `${pathResolve('types')}/`,
         },
+
+        {
+          find: /demo\//,
+          replacement: `${pathResolve('../react-demo')}/`,
+        },
       ],
     },
   },
-});
+})

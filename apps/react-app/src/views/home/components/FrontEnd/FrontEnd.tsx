@@ -1,11 +1,11 @@
 import { Button, Space } from 'antd'
+import dayjs from 'dayjs'
 import { observer } from 'mobx-react-lite'
 import React, { useCallback, useMemo } from 'react'
 
 import { buttonStyle, totalStyle } from './FrontEnd.css'
-import './index.css'
-
 import CustomTable from './components/Table'
+import styles from './index.module.less'
 
 export enum HighlightLevelEnum {
   高相关性 = 1,
@@ -62,7 +62,10 @@ const FrontEnd = observer(() => {
     const value = 0
     return value + 1
   }, [counterStore.textArr])
-
+  useEffect(() => {
+    const fiveDaysAgo = dayjs().subtract(5, 'day').startOf('day').toDate()
+    console.log(fiveDaysAgo)
+  }, [])
   return (
     <div>
       <Space>
@@ -98,6 +101,13 @@ const FrontEnd = observer(() => {
             打印map
           </Button>
         </div>
+
+        <div>
+          <a href="/template/案件上传模板.docx" download onClick={(e) => e.stopPropagation()}>
+            下载模版
+          </a>
+          <img src="/img/banner.jpg" alt="" />
+        </div>
       </Space>
 
       <div>{counterStore.addAge}年龄</div>
@@ -112,6 +122,9 @@ const FrontEnd = observer(() => {
       <h1 className={'  mt-20px prose prose-red '}>文字预设</h1>
       <div>
         <CustomTable></CustomTable>
+      </div>
+      <div className={styles.parent}>
+        <div className={styles.child}></div>
       </div>
     </div>
   )

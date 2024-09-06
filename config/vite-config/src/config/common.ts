@@ -1,5 +1,5 @@
 // import UnoCSS from 'unocss/vite'
-import { type UserConfig } from 'vite';
+import { type UserConfig } from 'vite'
 
 const commonConfig: UserConfig = {
   server: {
@@ -34,9 +34,15 @@ const commonConfig: UserConfig = {
     rollupOptions: {
       // TODO: Prevent memory overflow
       maxParallelFileOps: 3,
+      external: ['mobx-react-lite'],
+      output: {
+        globals: {
+          'mobx-react-lite': 'mobxReactLite',
+        },
+      },
     },
   },
   // plugins: [UnoCSS()],
-};
+}
 
-export { commonConfig };
+export { commonConfig }
