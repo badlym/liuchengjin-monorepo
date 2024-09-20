@@ -4,7 +4,6 @@
   "private": true,
   "description": "client side library (not include MST related)",
   "scripts": {
-    "stub": " unbuild",
     "clean": " rimraf .turbo node_modules dist"
   },
   "files": [

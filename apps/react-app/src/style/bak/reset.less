@@ -1,0 +1,210 @@
+@import './elem';
+@import './other';
+@import './color';
+@import './itemnav';
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: pingfang SC, helvetica neue, arial, hiragino sans gb, microsoft yahei ui, microsoft yahei, simsun, sans-serif !important;
+}
+* {
+  font-family: pingfang SC, helvetica neue, arial, hiragino sans gb, microsoft yahei ui, microsoft yahei, simsun, sans-serif !important;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  overflow: hidden;
+  background-color: $background-color;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+input {
+  border: none;
+  outline: none;
+  padding: 0;
+}
+input::-webkit-input-placeholder {
+  color: #c4c6cc;
+}
+input::-moz-placeholder {
+  color: #c4c6cc;
+}
+input:-ms-input-placeholder {
+  color: #c4c6cc;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: '';
+  visibility: hidden;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clear {
+  clear: both;
+}
+
+.hide {
+  display: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+.flex-v-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+@font-face {
+  font-family: 'DinMedium';
+  src: url('~@/elemui/fonts/dinmedium/DIN-Medium.eot');
+  src: url('~@/elemui/fonts/dinmedium/DIN-Medium.eot?#iefix') format('embedded-opentype'),
+    url('~@/elemui/fonts/dinmedium/DIN-Medium.woff') format('woff'), url('~@/elemui/fonts/dinmedium/DIN-Medium.ttf') format('truetype'),
+    url('~@/elemui/fonts/dinmedium/DIN-Medium.svg#webfont34M5alKg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

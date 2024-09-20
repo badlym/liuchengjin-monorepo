@@ -20,7 +20,8 @@
     "ncu-root:update": "ncu -u",
     "ncu:root": "ncu ",
     "ncu:update": "turbo run ncu:update",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "stub": "turbo run stub"
   },
   "config": {
     "commitizen": {
@@ -42,7 +43,7 @@
     "czg": "^1.9.4",
     "husky": "^9.1.5",
     "lint-staged": "15.2.9",
-    "turbo": "^2.0.14"
+    "turbo": "2.1.0"
   },
   "devDependencies": {
     "@b12k/mvm": "0.0.10",

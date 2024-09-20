@@ -38,7 +38,9 @@
       "cache": false,
       "persistent": true
     },
-    "stub": {},
+    "stub": {
+      "cache": false
+    },
     "lint": {},
     "ncu": {},
     "ncu:update": {},

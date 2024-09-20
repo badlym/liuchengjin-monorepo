@@ -21,7 +21,7 @@
     "dist"
   ],
   "scripts": {
-    "clean": "pnpm rimraf .turbo node_modules dist",
+    "clean": "pnpm rimraf  node_modules dist",
     "lint": "pnpm eslint . --fix",
     "ncu": "ncu",
     "ncu:update": "ncu -u",

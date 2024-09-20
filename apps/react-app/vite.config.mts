@@ -89,8 +89,10 @@ export default defineApplicationConfig({
     ],
     resolve: {
       alias: [
-        // /@/xxxx => src/xxxx
-        // { find: 'clib', replacement: 'clib/src' },
+        {
+          find: 'src',
+          replacement: pathResolve('src'),
+        },
         {
           find: /\/@\//,
           replacement: `${pathResolve('src')}/`,
