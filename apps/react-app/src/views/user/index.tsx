@@ -24,7 +24,7 @@ const columns: ProColumns[] = [
     dataIndex: 'sex',
     search: false, // 不可搜索
     ellipsis: true, // 超出省略
-    // @ts-ignore
+    // @ts-expect-error
     // editable: (_value, record, _index) => {
     //   if (!isEmpty(record)) {
     //     const isOnlyId = keys(record).length === 1 && has(record, 'id')
@@ -34,10 +34,10 @@ const columns: ProColumns[] = [
     // },
     valueType: 'select',
     valueEnum: {
-      '0': {
+      0: {
         text: '男',
       },
-      '1': {
+      1: {
         text: '女',
       },
     },
@@ -110,11 +110,10 @@ export default () => {
       editable={{
         type: 'multiple',
         async onSave(_, row, _originRow, newLineConfig) {
-          if (newLineConfig) {
+          if (newLineConfig)
             await createApi(omit(row, 'id'))
-          } else {
+          else
             await updateByIdApi(row)
-          }
         },
       }}
       columnsState={{

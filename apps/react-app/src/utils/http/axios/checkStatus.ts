@@ -63,11 +63,11 @@ export function checkStatus(
   }
 
   if (errMessage) {
-    if (errorMessageMode === 'modal') {
+    if (errorMessageMode === 'modal')
       Modal.error({ title: sys.api.errorTip, content: errMessage })
-    } else if (errorMessageMode === 'message') {
-      // eslint-disable-next-line no-void
+
+    else if (errorMessageMode === 'message')
+
       void Message.error(errMessage)
-    }
   }
 }

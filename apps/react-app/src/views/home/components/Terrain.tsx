@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
@@ -8,7 +8,7 @@ const Terrain: React.FC = () => {
   useEffect(() => {
     // 场景设置
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color(0xa0a0a0) // 设置背景色
+    scene.background = new THREE.Color(0xA0A0A0) // 设置背景色
 
     // 相机设置
     const camera = new THREE.PerspectiveCamera(
@@ -29,7 +29,7 @@ const Terrain: React.FC = () => {
 
     // 地形几何体设置
     const planeGeometry = new THREE.PlaneGeometry(100, 100, 32, 32) // 创建平面几何体
-    const planeMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00, wireframe: true }) // 创建材料
+    const planeMaterial = new THREE.MeshStandardMaterial({ color: 0x00FF00, wireframe: true }) // 创建材料
     const plane = new THREE.Mesh(planeGeometry, planeMaterial) // 创建网格
     plane.rotation.x = -Math.PI / 2 // 将平面旋转为水平
     scene.add(plane) // 将平面添加到场景中
@@ -37,7 +37,7 @@ const Terrain: React.FC = () => {
     // 添加光源
     const ambientLight = new THREE.AmbientLight(0x404040) // 环境光
     scene.add(ambientLight)
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5) // 平行光
+    const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.5) // 平行光
     directionalLight.position.set(0, 1, 0) // 设置平行光位置
     scene.add(directionalLight)
 

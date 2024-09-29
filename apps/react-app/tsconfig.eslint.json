@@ -1,13 +1,13 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "types": ["@types/node"],
-    "noEmit": true,
-    "allowJs": true
+    "allowJs": true,
+    "noEmit": true
   },
-  "extends": "./tsconfig.json",
   "include": [
     "*.js", "*.ts",
-    ".eslintrc.js",
+    ".eslintrc.js"
   ],
   "exclude": ["public"]
 }

@@ -22,7 +22,7 @@ export default defineConfig({
     // @see https://unocss.dev/presets/icons#autoinstall
     presetIcons({
       extraProperties: {
-        display: 'inline-block',
+        'display': 'inline-block',
         'vertical-align': 'middle',
         // ...
       },
@@ -30,7 +30,7 @@ export default defineConfig({
       // autoInstall: true,
       prefix: 'icon-',
       collections: {
-        icons: FileSystemIconLoader(`src/assets/icons`, (svg) => svg),
+        icons: FileSystemIconLoader(`src/assets/icons`, svg => svg),
       },
     }),
     presetTypography(),

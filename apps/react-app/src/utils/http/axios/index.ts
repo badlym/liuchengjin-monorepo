@@ -6,16 +6,15 @@ import type { AxiosInstance, AxiosResponse } from 'axios'
 import axios from 'axios'
 import { clone } from 'lodash-es'
 
+import { VAxios } from './Axios'
+import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform'
+import { checkStatus } from './checkStatus'
+import { formatRequestDate, joinTimestamp } from './helper'
 import { ContentTypeEnum, RequestEnum, ResultEnum } from '@/enums/httpEnum'
 import sys from '@/enums/sys'
 import { deepMerge, setObjToUrlParams } from '@/utils'
 import { AxiosRetry } from '@/utils/http/axios/axiosRetry'
 import { isEmpty, isNull, isString, isUnDef } from '@/utils/is'
-
-import { VAxios } from './Axios'
-import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform'
-import { checkStatus } from './checkStatus'
-import { formatRequestDate, joinTimestamp } from './helper'
 
 import type { RequestOptions, Result } from '#/axios'
 
@@ -36,14 +35,14 @@ const transform: AxiosTransform = {
   ) => {
     const { isTransformResponse, isReturnNativeResponse } = options
     // 是否返回原生响应头 比如：需要获取响应头时使用该属性
-    if (isReturnNativeResponse) {
+    if (isReturnNativeResponse)
       return res
-    }
+
     // 不进行任何处理，直接返回
     // 用于页面代码可能需要直接获取code，data，message这些信息时开启
-    if (!isTransformResponse) {
+    if (!isTransformResponse)
       return res.data
-    }
+
     // 错误的时候返回
     const { data } = res
     if (!res.data) {
@@ -59,15 +58,14 @@ const transform: AxiosTransform = {
     if (hasSuccess) {
       let successMsg = message
 
-      if (isNull(successMsg) || isUnDef(successMsg) || isEmpty(successMsg)) {
+      if (isNull(successMsg) || isUnDef(successMsg) || isEmpty(successMsg))
         successMsg = sys.api.operationSuccess
-      }
 
-      if (options.successMessageMode === 'modal') {
+      if (options.successMessageMode === 'modal')
         Modal.success({ title: sys.api.successTip, content: successMsg })
-      } else if (options.successMessageMode === 'message') {
+      else if (options.successMessageMode === 'message')
         await Message.success(successMsg)
-      }
+
       return result
     }
 
@@ -81,15 +79,14 @@ const transform: AxiosTransform = {
         timeoutMsg = sys.api.apiTimeoutMessage
         break
       default:
-        if (message) {
+        if (message)
           timeoutMsg = message
-        }
     }
     // errorMessageMode='modal'的时候会显示modal错误弹窗，而不是消息提示，用于一些比较重要的错误
     // errorMessageMode='none' 一般是调用时明确表示不希望自动弹出错误提示
-    if (options.errorMessageMode === 'modal') {
+    if (options.errorMessageMode === 'modal')
       Modal.error({ title: sys.api.errorTip, content: timeoutMsg })
-    }
+
     if (options.errorMessageMode === 'message') {
       // await Message.error(timeoutMsg)
     }
@@ -117,31 +114,34 @@ const transform: AxiosTransform = {
       if (!isString(params)) {
         // 给 get 请求加上时间戳参数，避免从缓存中拿数据。
         config.params = Object.assign(params || {}, joinTimestamp(joinTime, false))
-      } else {
+      }
+      else {
         // 兼容restful风格
         // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         config.url = `${config.url + params}${joinTimestamp(joinTime, true)}`
         config.params = undefined
       }
-    } else if (!isString(params)) {
+    }
+    else if (!isString(params)) {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       formatDate && formatRequestDate(params)
       if (
-        Reflect.has(config, 'data') &&
-        config.data &&
-        (Object.keys(config.data).length > 0 || config.data instanceof FormData)
+        Reflect.has(config, 'data')
+        && config.data
+        && (Object.keys(config.data).length > 0 || config.data instanceof FormData)
       ) {
         config.data = data
         config.params = params
-      } else {
+      }
+      else {
         // 非GET请求如果没有提供data，则将params视为data
         config.data = params
         config.params = undefined
       }
-      if (joinParamsToUrl) {
+      if (joinParamsToUrl)
         config.url = setObjToUrlParams(config.url as string, { ...config.params, ...config.data })
-      }
-    } else {
+    }
+    else {
       // 兼容restful风格
       config.url += params
       config.params = undefined
@@ -185,29 +185,29 @@ const transform: AxiosTransform = {
     const err: string = error?.toString?.() ?? ''
     let errMessage = ''
 
-    if (axios.isCancel(error)) {
+    if (axios.isCancel(error))
       return Promise.reject(error)
-    }
 
     try {
-      if (code === 'ECONNABORTED' && message.indexOf('timeout') !== -1) {
+      if (code === 'ECONNABORTED' && message.includes('timeout'))
         errMessage = sys.api.apiTimeoutMessage
-      }
-      if (err?.includes('Network Error')) {
+
+      if (err?.includes('Network Error'))
         errMessage = sys.api.networkExceptionMsg
-      }
 
       if (errMessage) {
-        if (errorMessageMode === 'modal') {
+        if (errorMessageMode === 'modal')
           Modal.error({ title: sys.api.errorTip, content: errMessage })
-        } else if (errorMessageMode === 'message') {
-          // eslint-disable-next-line no-void
+
+        else if (errorMessageMode === 'message')
+
           void Message.error(errMessage)
-        }
+
         return Promise.reject(error)
       }
       // eslint-disable-next-line @typescript-eslint/no-shadow
-    } catch (error) {
+    }
+    catch (error) {
       throw new Error(error as unknown as string)
     }
 
@@ -217,10 +217,10 @@ const transform: AxiosTransform = {
     const retryRequest = new AxiosRetry()
     const { isOpenRetry } = config.requestOptions.retryRequest
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    config.method?.toUpperCase() === RequestEnum.GET &&
-      isOpenRetry &&
-      // @ts-ignore
-      retryRequest.retry(axiosInstance, error)
+    config.method?.toUpperCase() === RequestEnum.GET
+    && isOpenRetry
+    // @ts-expect-error
+    && retryRequest.retry(axiosInstance, error)
     return Promise.reject(error)
   },
 }

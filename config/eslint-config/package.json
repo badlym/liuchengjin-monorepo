@@ -14,55 +14,20 @@
       "import": "./dist/base.mjs",
       "require": "./dist/base.cjs"
     },
-    "./base-ts": {
-      "types": "./dist/base-ts.d.ts",
-      "import": "./dist/base-ts.mjs",
-      "require": "./dist/base-ts.cjs"
-    },
-    "./vue": {
-      "types": "./dist/vue.d.ts",
-      "import": "./dist/vue.mjs",
-      "require": "./dist/vue.cjs"
+    "./vue-app": {
+      "types": "./dist/vue-app.d.ts",
+      "import": "./dist/vue-app.mjs",
+      "require": "./dist/vue-app.cjs"
     },
     "./react-app": {
       "types": "./dist/react-app.d.ts",
       "import": "./dist/react-app.mjs",
       "require": "./dist/react-app.cjs"
     },
-    "./strict": {
-      "types": "./dist/strict.d.ts",
-      "import": "./dist/strict.mjs",
-      "require": "./dist/strict.cjs"
-    },
-    "./react-native": {
-      "types": "./dist/react-native.d.ts",
-      "import": "./dist/react-native.mjs",
-      "require": "./dist/react-native.cjs"
-    },
     "./nest-app": {
       "types": "./dist/nest-app.d.ts",
       "import": "./dist/nest-app.mjs",
       "require": "./dist/nest-app.cjs"
-    },
-    "./simple-base": {
-      "types": "./dist/simple-base.d.ts",
-      "import": "./dist/simple-base.mjs",
-      "require": "./dist/simple-base.cjs"
-    },
-    "./simple-react": {
-      "types": "./dist/simple-react.d.ts",
-      "import": "./dist/simple-react.mjs",
-      "require": "./dist/simple-react.cjs"
-    },
-    "./simple-vue": {
-      "types": "./dist/simple-vue.d.ts",
-      "import": "./dist/simple-vue.mjs",
-      "require": "./dist/simple-vue.cjs"
-    },
-    "./simple-nest": {
-      "types": "./dist/simple-nest.d.ts",
-      "import": "./dist/simple-nest.mjs",
-      "require": "./dist/simple-nest.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -81,33 +46,39 @@
     "stub": "pnpm unbuild --stub"
   },
   "dependencies": {
-    "@liuchengjin/release-it-config": "workspace:^"
+    "@liuchengjin/release-it-config": "workspace:^",
+    "eslint-flat-config-utils": "^0.2.5",
+    "globals": "^15.2.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "@unocss/eslint-config": "^0.59.4",
-    "eslint": "^8.57.0",
+    "@antfu/eslint-config": "^2.18.1",
+    "@eslint-react/eslint-plugin": "^1.5.12",
+    "@eslint/js": "^9.3.0",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint__js": "^8.42.3",
+    "@unocss/eslint-config": "^0.60.2",
+    "eslint": "^9.3.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-next": "^14.2.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-turbo": "^1.13.3",
     "eslint-define-config": "^2.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jest": "^27.9.0",
+    "eslint-plugin-jest": "^28.5.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-prettier": "5.1.3",
     "eslint-plugin-react": "7.34.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
     "eslint-plugin-unused-imports": "^3.2.0",
     "eslint-plugin-vue": "^9.26.0",
     "prettier": "^3.2.5",
     "prettier-plugin-packagejson": "^2.5.0",
+    "typescript-eslint": "^7.9.0",
     "vue-eslint-parser": "^9.4.2"
   },
   "publishConfig": {
