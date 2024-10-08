@@ -28,9 +28,6 @@
       "path": "node_modules/cz-git"
     }
   },
-  "engines": {
-    "node": "20.17.0"
-  },
   "dependencies": {
     "@liuchengjin/commitlint-config": "workspace:^",
     "@liuchengjin/eslint-config": "workspace:^",
@@ -47,6 +44,7 @@
   },
   "devDependencies": {
     "@b12k/mvm": "0.0.10",
+    "@changesets/cli": "^2.27.9",
     "@commitlint/cli": "19.4.0",
     "@commitlint/config-conventional": "19.2.2",
     "@turbo/gen": "^2.0.14",
