@@ -1,5 +1,16 @@
 # 0.1.0 (2023-11-16)
 
+## 1.0.0
+
+### Major Changes
+
+- 826b4e4: 添加changeset
+
+### Patch Changes
+
+- Updated dependencies [826b4e4]
+  - @liuchengjin/release-it-config@1.0.0
+
 ### Bug Fixes
 
 - 修复eslint报错和ts报错的问题 ([2db4ccc](https://github.com/badlym/strawberry-monorepo/commit/2db4cccfa06f72678f25bba25c4b8b6888635287))
