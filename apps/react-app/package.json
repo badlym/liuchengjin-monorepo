@@ -24,8 +24,6 @@
     "@rollup/plugin-commonjs": "^26.0.1",
     "@tinymce/tinymce-react": "^5.0.1",
     "@types/node": "^20.12.12",
-    "@unocss/postcss": "0.60.2",
-    "@unocss/reset": "^0.60.2",
     "@vanilla-extract/css": "^1.15.1",
     "antd": "^5.17.3",
     "autoprefixer": "^10.4.19",
@@ -78,8 +76,7 @@
     "postcss-nesting": "^12.1.4",
     "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.4.5",
-    "unocss": "^0.60.2",
-    "vite": "^5.2.11"
+    "vite": "^5.4.8"
   },
   "publishConfig": {
     "access": "public"

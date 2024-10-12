@@ -1,10 +1,7 @@
 import { resolve } from 'node:path'
-import commonjs from '@rollup/plugin-commonjs'
 // @ts-ignore
 import { defineApplicationConfig } from '@liuchengjin/vite-config/react'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
-import { VitePWA } from 'vite-plugin-pwa'
-import UnoCSS from 'unocss/vite'
 import cdn from 'vite-plugin-cdn-import'
 
 // https://vitejs.dev/config/
@@ -29,7 +26,6 @@ export default defineApplicationConfig({
 
     plugins: [
       vanillaExtractPlugin(),
-      UnoCSS(),
       cdn({
         prodUrl: 'https://static-dev.zgg.com/s/npm/{path}',
         enableInDevMode: true,

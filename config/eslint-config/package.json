@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "license": "MIT",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -52,34 +53,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.3",
-    "@eslint-react/eslint-plugin": "^1.14.2",
-    "@eslint/js": "^9.11.1",
-    "@types/eslint-config-prettier": "^6.11.3",
-    "@types/eslint__js": "^8.42.3",
-    "@unocss/eslint-config": "^0.63.1",
-    "eslint": "^9.11.1",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-config-next": "^14.2.13",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-turbo": "^2.1.2",
-    "eslint-define-config": "^2.1.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-import": "^2.30.0",
-    "eslint-plugin-jest": "^28.8.3",
-    "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-prettier": "5.2.1",
-    "eslint-plugin-react": "7.37.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.12",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-unused-imports": "^4.1.4",
-    "eslint-plugin-vue": "^9.28.0",
-    "prettier": "^3.3.3",
-    "prettier-plugin-packagejson": "^2.5.2",
-    "typescript-eslint": "^8.7.0",
-    "vue-eslint-parser": "^9.4.3"
+    "prettier": "^3.3.3"
   },
   "publishConfig": {
     "access": "public"

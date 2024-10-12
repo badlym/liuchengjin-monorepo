@@ -1,7 +1,7 @@
-import antfu from '@antfu/eslint-config';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import antfu from '@antfu/eslint-config'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 //
-console.log(eslintPluginPrettierRecommended, 'eslintPluginPrettierRecommended');
+console.log(eslintPluginPrettierRecommended, 'eslintPluginPrettierRecommended')
 
 export default function reactConfig(options) {
   return antfu(
@@ -12,11 +12,6 @@ export default function reactConfig(options) {
       typescript: true,
       ...options,
     },
-    // {
-    //   rules: {
-    //     'style/semi': ['error', 'never'],
-    //   },
-    // },
     eslintPluginPrettierRecommended,
-  );
+  )
 }

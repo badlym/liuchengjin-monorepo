@@ -1,6 +1,3 @@
-import antfu from '@antfu/eslint-config'
+import baseConfig from './src/base.js'
 
-export default antfu({
-  vue:false,
-  typescript:true
-})
+export default baseConfig()

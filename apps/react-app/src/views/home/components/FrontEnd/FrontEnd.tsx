@@ -3,8 +3,8 @@ import dayjs from 'dayjs'
 import { observer } from 'mobx-react-lite'
 import React, { useCallback, useMemo } from 'react'
 
-import { buttonStyle, totalStyle } from './FrontEnd.css'
 import CustomTable from './components/Table'
+import { buttonStyle, totalStyle } from './FrontEnd.css'
 import styles from './index.module.less'
 
 export enum HighlightLevelEnum {
@@ -75,7 +75,7 @@ const FrontEnd = observer(() => {
         <button className={buttonStyle} onClick={setAsyncCount}>
           异步新增 is {counterStore.asyncCount}
         </button>
-        <Button type={'primary'} onClick={showModal} className={'tw-ml-4'}>
+        <Button type={'primary'} onClick={showModal} className={'tw-ml-4 tw-bg-red-500'}>
           点击弹窗
         </Button>
 
