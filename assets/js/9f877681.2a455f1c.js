@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_liuchengjin_docs=self.webpackChunk_liuchengjin_docs||[]).push([[7335],{6125:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/liuchengjin-monorepo/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
