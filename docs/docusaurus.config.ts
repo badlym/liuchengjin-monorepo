@@ -11,7 +11,7 @@ const config: Config = {
   url: 'https://badlym.github.io/liuchengjin-monorepo/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/liuchengjin-monorepo/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
