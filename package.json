@@ -21,7 +21,8 @@
     "ncu:root": "ncu ",
     "ncu:update": "turbo run ncu:update",
     "prepare": "husky install",
-    "stub": "turbo run stub"
+    "stub": "turbo run stub",
+    "docs:build": "pnpm  --filter=@liuchengjin/docs run build"
   },
   "config": {
     "commitizen": {
@@ -60,5 +61,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "packageManager": "pnpm@9.9.0"
+  "packageManager": "pnpm@9.12.1"
 }
