@@ -16,7 +16,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/todos')
   const todos: Todo[] = await res.json()
 
-  const paths = todos.slice(0, 10).map((todo) => ({
+  const paths = todos.map((todo) => ({
     params: { id: todo.id.toString() },
   }))
 
