@@ -22,7 +22,9 @@
     "ncu:update": "turbo run ncu:update",
     "prepare": "husky install",
     "stub": "turbo run stub",
-    "docs:build": "pnpm  --filter=@liuchengjin/docs run build"
+    "docs:build": "pnpm  --filter=@liuchengjin/docs run build",
+    "next-approuter-demo": "pnpm --filter=@liuchengjin/next-app-router run dev",
+    "next-pages-router-demo": "pnpm --filter=@liuchengjin/next-pages-router run dev"
   },
   "config": {
     "commitizen": {
