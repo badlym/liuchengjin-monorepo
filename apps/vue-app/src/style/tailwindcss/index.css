@@ -71,11 +71,11 @@
 
 @layer base {
   * {
-    @apply zgg-border-border;
+    @apply border-border;
   }
 
   body {
-    @apply zgg-bg-background zgg-text-foreground;
+    @apply bg-background text-foreground;
   }
 }
 

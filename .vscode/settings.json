@@ -157,7 +157,7 @@
   "errorLens.enabledDiagnosticLevels": ["warning", "error"],
   "errorLens.excludeBySource": ["cSpell", "Grammarly", "eslint"],
 
-  "stylelint.enable": false,
+  "stylelint.enable": true,
   "stylelint.packageManager": "pnpm",
   "stylelint.validate": ["css", "less", "postcss", "scss", "vue"],
   "stylelint.customSyntax": "postcss-html",

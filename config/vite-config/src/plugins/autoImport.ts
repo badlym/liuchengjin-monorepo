@@ -1,7 +1,6 @@
+import type { Options } from '../types';
 import AutoImport from 'unplugin-auto-import/vite';
-import { ArcoResolver } from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
-import { Options } from '../types';
 
 export const createAutoImport = (framework?: Options['framework'], options?: Options) => {
   if (framework === 'react') {
@@ -16,7 +15,7 @@ export const createAutoImport = (framework?: Options['framework'], options?: Opt
           },
           defaultExportByFilename: true,
         },
-        options?.autoImport,
+        options?.autoImport ?? {},
       ),
     );
   } else {
@@ -46,17 +45,17 @@ export const createAutoImport = (framework?: Options['framework'], options?: Opt
           ],
           defaultExportByFilename: true,
           // eslint报错解决
-          // eslintrc: {
-          //   enabled: false, // Default `false`
-          //   filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-          //   globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
-          // },
+          eslintrc: {
+            enabled: true, // Default `false`
+            filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+            globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+          },
           // eslintrc: false,
 
-          dts: './src/types/auto-imports.d.ts',
+          dts: './types/auto-imports.d.ts',
           // dirs: ['src/layout/**', 'src/views/**', 'src/components/**', 'src/stores/**'],
         },
-        options?.autoImport,
+        options?.autoImport ?? {},
       ),
     );
   }
@@ -69,10 +68,9 @@ export function configAutoImportComponent(options?: Options) {
         directoryAsNamespace: true,
         dirs: ['src/components'],
         extensions: ['vue', 'tsx'],
-        dts: 'src/types/components.d.ts', // 配置文件生成位置,
-        resolvers: [ArcoResolver()],
+        dts: './types/components.d.ts', // 配置文件生成位置,
       },
-      options?.autoImportComponent,
+      options?.autoImportComponent ?? {},
     ),
   );
 }

@@ -31,8 +31,8 @@
   "dependencies": {
     "@liuchengjin/eslint-config": "workspace:^",
     "@liuchengjin/release-it-config": "workspace:^",
-    "prettier": "^3.2.5",
-    "prettier-plugin-packagejson": "^2.5.0"
+    "prettier": "catalog:",
+    "prettier-plugin-tailwindcss": "catalog:"
   },
   "publishConfig": {
     "access": "public"

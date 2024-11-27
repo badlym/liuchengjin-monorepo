@@ -1,13 +1,12 @@
-import { DesktopOutlined, FileOutlined, PieChartOutlined } from '@ant-design/icons'
-import type { MenuProps } from 'antd'
-import { Layout, Menu, theme } from 'antd'
-import React, { useMemo, useState } from 'react'
+import type { MenuProps } from 'antd';
+import { DesktopOutlined, FileOutlined, PieChartOutlined } from '@ant-design/icons';
+import { Layout, Menu, theme } from 'antd';
 
-import DemoContainer from '@/views/home/components/DemoContainer'
+import React, { useMemo, useState } from 'react';
 
-const { Header, Content, Footer, Sider } = Layout
+const { Header, Content, Footer, Sider } = Layout;
 
-type MenuItem = Required<MenuProps>['items'][number]
+type MenuItem = Required<MenuProps>['items'][number];
 
 function getItem(
   label: React.ReactNode,
@@ -20,13 +19,13 @@ function getItem(
     icon,
     children,
     label,
-  } as MenuItem
+  } as MenuItem;
 }
 
 const Home: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false)
-  const [menuKey, setMenuKey] = useState('front-end')
-  const navigate = useNavigate()
+  const [collapsed, setCollapsed] = useState(false);
+  const [menuKey, setMenuKey] = useState('front-end');
+  const navigate = useNavigate();
   const items: MenuItem[] = useMemo(() => {
     return [
       getItem('前端演示', '/front-end', <PieChartOutlined />),
@@ -36,15 +35,15 @@ const Home: React.FC = () => {
       // getItem('three', '/three', <FileOutlined />),
       // getItem('konva', '/konva', <FileOutlined />),
       // // getItem('富文本', 'tinymce', <FileOutlined />),
-    ]
-  }, [menuKey])
+    ];
+  }, [menuKey]);
   const handleMenuClick = ({ key }: { key: string }) => {
-    navigate(key)
-  }
+    navigate(key);
+  };
 
   const {
     token: { colorBgContainer },
-  } = theme.useToken()
+  } = theme.useToken();
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
@@ -67,7 +66,7 @@ const Home: React.FC = () => {
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
       </Layout>
     </Layout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

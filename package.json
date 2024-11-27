@@ -12,6 +12,7 @@
     "clean:root": " rimraf node_modules pnpm-lock.yaml",
     "commit": "czg",
     "dev": "turbo run dev  --concurrency 20",
+    "docs:build": "pnpm  --filter=@liuchengjin/docs run build",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "postinstall": "turbo run stub",
     "lint": "turbo run lint",
@@ -20,11 +21,10 @@
     "ncu-root:update": "ncu -u",
     "ncu:root": "ncu ",
     "ncu:update": "turbo run ncu:update",
-    "prepare": "husky install",
-    "stub": "turbo run stub",
-    "docs:build": "pnpm  --filter=@liuchengjin/docs run build",
     "next-approuter-demo": "pnpm --filter=@liuchengjin/next-app-router run dev",
-    "next-pages-router-demo": "pnpm --filter=@liuchengjin/next-pages-router run dev"
+    "next-pages-router-demo": "pnpm --filter=@liuchengjin/next-pages-router run dev",
+    "prepare": "husky install",
+    "stub": "turbo run stub"
   },
   "config": {
     "commitizen": {
@@ -51,18 +51,18 @@
     "@changesets/cli": "^2.27.9",
     "@commitlint/cli": "19.4.0",
     "@commitlint/config-conventional": "19.2.2",
+    "@tailwindcss/typography": "catalog:",
     "@turbo/gen": "^2.0.14",
     "@types/node": "^22.4.2",
     "globby": "^14.0.2",
+    "postcss-preset-env": "catalog:",
     "release-it": "17.6.0",
-    "unbuild": "^2.0.0",
     "tailwindcss": "catalog:",
     "tailwindcss-animate": "catalog:",
-    "@tailwindcss/typography": "catalog:",
-    "postcss-preset-env": "catalog:"
+    "unbuild": "^2.0.0"
   },
+  "packageManager": "pnpm@9.12.1",
   "publishConfig": {
     "access": "public"
-  },
-  "packageManager": "pnpm@9.12.1"
+  }
 }
