@@ -7,10 +7,12 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend';
 
 import { Options } from '../types';
 
+import { pathResolve } from '../utils/index.ts';
 import { createAppConfigPlugin } from './appConfig';
 import { configAutoImportComponent, createAutoImport } from './autoImport';
 import { configCompressPlugin } from './compress';
 import { configHtmlPlugin } from './html';
+import resolveSrcAliasPlugin from './resolveSrcAliasPlugin.ts';
 import stylePxToVw from './stylePxToVw';
 // import { configMockPlugin } from './mock'
 import { configSvgIconsPlugin, configUnPluginIcons } from './svgSprite';
@@ -35,13 +37,16 @@ async function createPlugins({
     vueSetupExtend(),
     DefineOptions(),
     createAutoImport(),
+    resolveSrcAliasPlugin({
+      appPath: pathResolve('./'),
+    }),
     framework && framework === 'vue' && configAutoImportComponent(options),
   ];
   const appConfigPlugin = await createAppConfigPlugin({ root, isBuild });
   vitePlugins.push(appConfigPlugin);
 
   // vite-plugin-html
-  vitePlugins.push(configHtmlPlugin({ isBuild }));
+  vitePlugins.push(configHtmlPlugin({ isBuild, options }));
 
   // vite-plugin-svg-icons
   vitePlugins.push(configSvgIconsPlugin({ isBuild }));

@@ -39,6 +39,7 @@
     "@liuchengjin/release-it-config": "workspace:^",
     "@liuchengjin/stylelint-config": "workspace:^",
     "@liuchengjin/ts-config": "workspace:^",
+    "@vben/tailwind-config": "workspace:^",
     "cz-git": "^1.9.4",
     "czg": "^1.9.4",
     "husky": "^9.1.5",

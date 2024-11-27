@@ -1,7 +1,7 @@
-import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
-
+import type { RouteObject } from 'react-router-dom'
 import lazyLoad from '@/routers/lazyLoad'
-import Home from '@/views/home'
+
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 // @ts-ignore
 export const router: RouteObject[] = createBrowserRouter([
@@ -24,6 +24,10 @@ export const router: RouteObject[] = createBrowserRouter([
       {
         path: 'order',
         element: lazyLoad(lazy(() => import('@/views/order'))),
+      },
+      {
+        path: 'immer',
+        element: lazyLoad(lazy(() => import('@/views/immer'))),
       },
     ],
   },

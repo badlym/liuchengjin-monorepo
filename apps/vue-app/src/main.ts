@@ -1,11 +1,10 @@
-import { createApp } from 'vue';
+import Antd from 'ant-design-vue';
 
-import './style.css';
+import { createApp } from 'vue';
 import App from './App.vue';
 
-import Antd from 'ant-design-vue';
-// eslint-disable-next-line import/no-unresolved
-import 'virtual:uno.css';
+import '@/style/tailwindcss';
+
 import 'ant-design-vue/dist/reset.css';
 
 const app = createApp(App);

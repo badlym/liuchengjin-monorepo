@@ -32,6 +32,7 @@ const Home: React.FC = () => {
       getItem('前端演示', '/front-end', <PieChartOutlined />),
       getItem('用户', '/user', <DesktopOutlined />),
       getItem('工单', '/order', <FileOutlined />),
+      getItem('immer', '/immer', <FileOutlined />),
       // getItem('three', '/three', <FileOutlined />),
       // getItem('konva', '/konva', <FileOutlined />),
       // // getItem('富文本', 'tinymce', <FileOutlined />),

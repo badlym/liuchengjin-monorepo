@@ -1,12 +1,12 @@
-import { PlusOutlined } from '@ant-design/icons'
 import type { ActionType, ProColumns } from '@ant-design/pro-components'
-import { ProTable } from '@ant-design/pro-components'
-import { Button, Popconfirm } from 'antd'
-import { omit } from 'lodash-es'
-import { useRef } from 'react'
-
 import { createApi, deleteByIdApi, findAllApi, updateByIdApi } from '@/api/order'
 import { findAllApi as findAllUserApi } from '@/api/user'
+import { PlusOutlined } from '@ant-design/icons'
+import { ProTable } from '@ant-design/pro-components'
+import { Button, Popconfirm } from 'antd'
+
+import { omit } from 'lodash-es'
+import { useRef } from 'react'
 
 async function request() {
   const res = await findAllUserApi({})
@@ -18,6 +18,7 @@ async function request() {
     }
   })
 }
+
 const columns: ProColumns[] = [
   {
     dataIndex: 'index',
@@ -108,10 +109,8 @@ export default () => {
       editable={{
         type: 'multiple',
         async onSave(_, row, _originRow, newLineConfig) {
-          if (newLineConfig)
-            await createApi(omit(row, 'id'))
-          else
-            await updateByIdApi(row)
+          if (newLineConfig) await createApi(omit(row, 'id'))
+          else await updateByIdApi(row)
         },
       }}
       columnsState={{

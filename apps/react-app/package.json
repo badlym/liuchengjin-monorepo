@@ -28,9 +28,9 @@
     "antd": "^5.17.3",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
-    "clib": "workspace:^",
     "dayjs": "^1.11.11",
     "fs-extra": "^11.2.0",
+    "immer": "^10.1.1",
     "konva": "^9.3.8",
     "lodash-es": "^4.17.21",
     "mobx": "^6.12.3",
@@ -65,7 +65,6 @@
     "@vanilla-extract/recipes": "^0.5.5",
     "@vanilla-extract/vite-plugin": "^4.0.9",
     "@vitejs/plugin-react-swc": "^3.6.0",
-    "i": "^0.3.7",
     "less": "^4.2.0",
     "postcss": "^8.4.38",
     "postcss-html": "^1.7.0",
@@ -76,7 +75,7 @@
     "postcss-nesting": "^12.1.4",
     "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.4.5",
-    "vite": "^5.4.8"
+    "vite": "catalog:"
   },
   "publishConfig": {
     "access": "public"

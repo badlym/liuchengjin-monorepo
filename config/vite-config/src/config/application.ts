@@ -2,11 +2,10 @@ import { resolve } from 'node:path';
 
 import dayjs from 'dayjs';
 import { readPackageJSON } from 'pkg-types';
-import { defineConfig, loadEnv, mergeConfig, type UserConfig } from 'vite';
+import { type UserConfig, defineConfig, loadEnv, mergeConfig } from 'vite';
 
 import { createPlugins } from '../plugins';
 import { Options } from '../types';
-import { generateModifyVars } from '../utils/modifyVars';
 
 import { commonConfig } from './common';
 
@@ -15,12 +14,16 @@ interface DefineOptions {
   options?: Options;
 }
 
-function defineApplicationConfig(defineOptions: DefineOptions = {}) {
+function defineApplicationConfig(callback: (config: { command: string; mode: string }) => DefineOptions) {
   console.log('进入了程序');
-  const { overrides = {}, options = {} } = defineOptions;
 
   return defineConfig(async ({ command, mode }) => {
+    const { overrides = {}, options = {} } = callback({ command, mode });
     const root = process.cwd();
+    console.log(mode, '当前模式');
+    const env = loadEnv(mode, process.cwd(), options.envPrefix);
+    console.log(env, '环境变量');
+
     const isBuild = command === 'build';
     const { VITE_USE_MOCK, VITE_BUILD_COMPRESS, VITE_ENABLE_ANALYZE } = loadEnv(mode, root);
 
@@ -40,29 +43,23 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
     const applicationConfig: UserConfig = {
       resolve: {
         alias: [
-          {
-            find: 'vue-i18n',
-            replacement: 'vue-i18n/dist/vue-i18n.cjs.js',
-          },
           // /@/xxxx => src/xxxx
-          {
-            find: /\/@\//,
-            replacement: pathResolve('src') + '/',
-          },
+
           // /#/xxxx => types/xxxx
-          {
-            find: /\/#\//,
-            replacement: pathResolve('types') + '/',
-          },
           // @/xxxx => src/xxxx
           {
             find: /@\//,
-            replacement: pathResolve('src') + '/',
+            replacement: `${pathResolve('src')}/`,
           },
           // #/xxxx => types/xxxx
           {
             find: /#\//,
-            replacement: pathResolve('types') + '/',
+            replacement: `${pathResolve('types')}/`,
+          },
+
+          {
+            find: /~\//,
+            replacement: `'./`,
           },
         ],
       },
@@ -94,8 +91,11 @@ function defineApplicationConfig(defineOptions: DefineOptions = {}) {
       css: {
         preprocessorOptions: {
           less: {
-            modifyVars: generateModifyVars(),
             javascriptEnabled: true,
+          },
+          scss: {
+            additionalData: `@import "@/styles/var.scss";`,
+            api: 'modern-compiler',
           },
         },
       },

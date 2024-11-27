@@ -2,7 +2,7 @@ export default {
   // 设置每行代码的最大宽度
   printWidth: 100,
   // 是否在语句末尾使用分号
-  semi: false,
+  semi: true,
   // 是否缩进 Vue 文件中的脚本和样式标签
   vueIndentScriptAndStyle: true,
   // 是否使用单引号而不是双引号

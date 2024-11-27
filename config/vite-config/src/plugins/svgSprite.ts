@@ -13,16 +13,13 @@ import { Options } from '../types';
 
 export function configSvgIconsPlugin({ isBuild }: { isBuild: boolean }) {
   const svgIconsPlugin = createSvgIconsPlugin({
-    iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
+    iconDirs: [resolve(process.cwd(), 'src/icons')],
     svgoOptions: isBuild,
-    symbolId: 'icon-[dir]-[name]',
+    symbolId: 'icon-[name]',
   });
   return svgIconsPlugin as PluginOption;
 }
-export function configUnPluginIcons(
-  framework?: Options['framework'],
-  options?: Options['options'],
-) {
+export function configUnPluginIcons(framework?: Options['framework'], options?: Options['options']) {
   if (framework === 'react') {
     return Icons(
       /* options */
