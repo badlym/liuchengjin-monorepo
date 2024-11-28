@@ -1,5 +1,7 @@
 <script lang="ts" setup></script>
 <template>
-  <div>user</div>
+  <div>
+    <BaseGrid />
+  </div>
 </template>
 <style scoped></style>

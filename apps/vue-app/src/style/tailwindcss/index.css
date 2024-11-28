@@ -77,5 +77,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  .page-container {
+    @apply p-4;
+  }
 }
 

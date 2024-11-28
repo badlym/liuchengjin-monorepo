@@ -13,24 +13,27 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
+    "@form-create/ant-design-vue": "^3",
     "@liuchengjin/eslint-config": "workspace:^",
     "@liuchengjin/react-app": "workspace:^",
     "@liuchengjin/release-it-config": "workspace:^",
     "@liuchengjin/ts-config": "workspace:^",
     "@liuchengjin/vite-config": "workspace:^",
-    "@vueuse/core": "^10.9.0",
-    "ant-design-vue": "^4.2.1",
-    "pinia": "^2.1.7",
-    "unplugin-vue-components": "^0.26.0",
-    "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "@vueuse/core": "^12.0.0",
+    "ant-design-vue": "^4.2.6",
+    "pinia": "^2.2.7",
+    "unplugin-vue-components": "^0.27.5",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "vxe-pc-ui": "4.3.6",
+    "vxe-table": "4.9.9"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.211",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.11",
-    "vue-tsc": "^2.0.19"
+    "@iconify/json": "^2.2.276",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1",
+    "vue-tsc": "^2.1.10"
   },
   "publishConfig": {
     "access": "public"

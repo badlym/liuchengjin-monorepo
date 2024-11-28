@@ -31,7 +31,7 @@ const handleClick = ({ key }: { key: string }) => {
     <a-layout>
       <a-layout-header style="padding: 0; background: #fff" />
       <a-layout-content style="margin: 0 16px">
-        <router-view />
+        <router-view class="page-container" />
       </a-layout-content>
       <a-layout-footer style="text-align: center">
         Ant Design ©2018 Created by Ant UED
