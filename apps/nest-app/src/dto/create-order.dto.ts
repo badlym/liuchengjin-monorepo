@@ -1,9 +1,9 @@
 export class CreateOrderDto {
-  readonly orderDetails: string
+  readonly orderDetails: string;
 
-  readonly orderName: string
+  readonly orderName: string;
 
   readonly user: {
-    readonly id: number
-  }
+    readonly id: number;
+  };
 }

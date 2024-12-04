@@ -1,22 +1,22 @@
 // axios配置  可自行根据项目进行更改，只需更改该文件即可，其他文件可以不动
 // The axios configuration can be changed according to the project, just change the file, other files can be left unchanged
 
-import { message as Message, Modal } from 'antd'
-import type { AxiosInstance, AxiosResponse } from 'axios'
-import axios from 'axios'
-import { clone } from 'lodash-es'
+import type { RequestOptions, Result } from '#/axios';
+import type { AxiosInstance, AxiosResponse } from 'axios';
+import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform';
+import { ContentTypeEnum, RequestEnum, ResultEnum } from '@/enums/httpEnum';
 
-import { VAxios } from './Axios'
-import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform'
-import { checkStatus } from './checkStatus'
-import { formatRequestDate, joinTimestamp } from './helper'
-import { ContentTypeEnum, RequestEnum, ResultEnum } from '@/enums/httpEnum'
-import sys from '@/enums/sys'
-import { deepMerge, setObjToUrlParams } from '@/utils'
-import { AxiosRetry } from '@/utils/http/axios/axiosRetry'
-import { isEmpty, isNull, isString, isUnDef } from '@/utils/is'
+import sys from '@/enums/sys';
+import { deepMerge, setObjToUrlParams } from '@/utils';
+import { AxiosRetry } from '@/utils/http/axios/axiosRetry';
+import { isEmpty, isNull, isString, isUnDef } from '@/utils/is';
+import { message as Message, Modal } from 'antd';
+import axios from 'axios';
+import { clone } from 'lodash-es';
+import { VAxios } from './Axios';
+import { checkStatus } from './checkStatus';
 
-import type { RequestOptions, Result } from '#/axios'
+import { formatRequestDate, joinTimestamp } from './helper';
 
 /**
  * @description: 数据处理，方便区分多种处理方式
@@ -33,120 +33,127 @@ const transform: AxiosTransform = {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     // createAxiosOptions: CreateAxiosOptions,
   ) => {
-    const { isTransformResponse, isReturnNativeResponse } = options
+    const { isTransformResponse, isReturnNativeResponse } = options;
     // 是否返回原生响应头 比如：需要获取响应头时使用该属性
-    if (isReturnNativeResponse)
-      return res
+    if (isReturnNativeResponse) return res;
 
     // 不进行任何处理，直接返回
     // 用于页面代码可能需要直接获取code，data，message这些信息时开启
-    if (!isTransformResponse)
-      return res.data
+    if (!isTransformResponse) return res.data;
 
     // 错误的时候返回
-    const { data } = res
+    const { data } = res;
     if (!res.data) {
       // return '[HTTP] Request has no return value';
-      throw new Error(sys.api.apiRequestFailed)
+      throw new Error(sys.api.apiRequestFailed);
     }
     //  这里 code，result，message为 后台统一的字段，需要在 types.ts内修改为项目自己的接口返回格式
-    const { code, data: result, message } = data
+    const { code, data: result, message } = data;
 
     // 这里逻辑可以根据项目进行修改
     // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
-    const hasSuccess = data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS
+    const hasSuccess =
+      data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS;
     if (hasSuccess) {
-      let successMsg = message
+      let successMsg = message;
 
       if (isNull(successMsg) || isUnDef(successMsg) || isEmpty(successMsg))
-        successMsg = sys.api.operationSuccess
+        successMsg = sys.api.operationSuccess;
 
       if (options.successMessageMode === 'modal')
-        Modal.success({ title: sys.api.successTip, content: successMsg })
+        Modal.success({ title: sys.api.successTip, content: successMsg });
       else if (options.successMessageMode === 'message')
-        await Message.success(successMsg)
+        await Message.success(successMsg);
 
-      return result
+      return result;
     }
 
     // 在此处根据自己项目的实际情况对不同的code执行不同的操作
     // 如果不希望中断当前请求，请return数据，否则直接抛出异常即可
-    let timeoutMsg = ''
+    let timeoutMsg = '';
     switch (code) {
       case ResultEnum.TIMEOUT:
         // const tokenRefresher = new TokenRefresher()
         // await tokenRefresher.refreshToken(res, createAxiosOptions, axiosInstance, timeoutMsg)
-        timeoutMsg = sys.api.apiTimeoutMessage
-        break
+        timeoutMsg = sys.api.apiTimeoutMessage;
+        break;
       default:
-        if (message)
-          timeoutMsg = message
+        if (message) timeoutMsg = message;
     }
     // errorMessageMode='modal'的时候会显示modal错误弹窗，而不是消息提示，用于一些比较重要的错误
     // errorMessageMode='none' 一般是调用时明确表示不希望自动弹出错误提示
     if (options.errorMessageMode === 'modal')
-      Modal.error({ title: sys.api.errorTip, content: timeoutMsg })
+      Modal.error({ title: sys.api.errorTip, content: timeoutMsg });
 
     if (options.errorMessageMode === 'message') {
       // await Message.error(timeoutMsg)
     }
 
-    throw new Error(timeoutMsg || sys.api.apiRequestFailed)
+    throw new Error(timeoutMsg || sys.api.apiRequestFailed);
   },
 
   // 请求之前处理config
   beforeRequestHook: (config, options) => {
-    const { apiUrl, joinPrefix, joinParamsToUrl, formatDate, joinTime = true, urlPrefix } = options
+    const {
+      apiUrl,
+      joinPrefix,
+      joinParamsToUrl,
+      formatDate,
+      joinTime = true,
+      urlPrefix,
+    } = options;
     if (joinPrefix) {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      config.url = `${urlPrefix}${config.url}`
+      config.url = `${urlPrefix}${config.url}`;
     }
 
     if (apiUrl && isString(apiUrl)) {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-      config.url = `${apiUrl}${config.url}`
+      config.url = `${apiUrl}${config.url}`;
     }
-    const params = config.params || {}
-    const data = config.data || false
+    const params = config.params || {};
+    const data = config.data || false;
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    formatDate && data && !isString(data) && formatRequestDate(data)
+    formatDate && data && !isString(data) && formatRequestDate(data);
     if (config.method?.toUpperCase() === RequestEnum.GET) {
       if (!isString(params)) {
         // 给 get 请求加上时间戳参数，避免从缓存中拿数据。
-        config.params = Object.assign(params || {}, joinTimestamp(joinTime, false))
-      }
-      else {
+        config.params = Object.assign(
+          params || {},
+          joinTimestamp(joinTime, false),
+        );
+      } else {
         // 兼容restful风格
         // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-        config.url = `${config.url + params}${joinTimestamp(joinTime, true)}`
-        config.params = undefined
+        config.url = `${config.url + params}${joinTimestamp(joinTime, true)}`;
+        config.params = undefined;
       }
-    }
-    else if (!isString(params)) {
+    } else if (!isString(params)) {
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      formatDate && formatRequestDate(params)
+      formatDate && formatRequestDate(params);
       if (
-        Reflect.has(config, 'data')
-        && config.data
-        && (Object.keys(config.data).length > 0 || config.data instanceof FormData)
+        Reflect.has(config, 'data') &&
+        config.data &&
+        (Object.keys(config.data).length > 0 || config.data instanceof FormData)
       ) {
-        config.data = data
-        config.params = params
-      }
-      else {
+        config.data = data;
+        config.params = params;
+      } else {
         // 非GET请求如果没有提供data，则将params视为data
-        config.data = params
-        config.params = undefined
+        config.data = params;
+        config.params = undefined;
       }
       if (joinParamsToUrl)
-        config.url = setObjToUrlParams(config.url as string, { ...config.params, ...config.data })
-    }
-    else {
+        config.url = setObjToUrlParams(config.url as string, {
+          ...config.params,
+          ...config.data,
+        });
+    } else {
       // 兼容restful风格
-      config.url += params
-      config.params = undefined
+      config.url += params;
+      config.params = undefined;
     }
-    return config
+    return config;
   },
 
   /**
@@ -164,66 +171,64 @@ const transform: AxiosTransform = {
     //       `${options.authenticationScheme} ${token}`
     //     : token
     // }
-    return config
+    return config;
   },
 
   /**
    * @description: 响应拦截器处理
    */
   responseInterceptors: (res: AxiosResponse<any>) => {
-    return res
+    return res;
   },
 
   /**
    * @description: 响应错误处理
    */
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
-  responseInterceptorsCatch: (axiosInstance: AxiosInstance, error: any): Promise<any> => {
-    const { response, code, message, config } = error || {}
-    const errorMessageMode = config?.requestOptions?.errorMessageMode || 'none'
-    const msg: string = response?.data?.error?.message ?? ''
-    const err: string = error?.toString?.() ?? ''
-    let errMessage = ''
+  responseInterceptorsCatch: (
+    axiosInstance: AxiosInstance,
+    error: any,
+  ): Promise<any> => {
+    const { response, code, message, config } = error || {};
+    const errorMessageMode = config?.requestOptions?.errorMessageMode || 'none';
+    const msg: string = response?.data?.error?.message ?? '';
+    const err: string = error?.toString?.() ?? '';
+    let errMessage = '';
 
-    if (axios.isCancel(error))
-      return Promise.reject(error)
+    if (axios.isCancel(error)) return Promise.reject(error);
 
     try {
       if (code === 'ECONNABORTED' && message.includes('timeout'))
-        errMessage = sys.api.apiTimeoutMessage
+        errMessage = sys.api.apiTimeoutMessage;
 
       if (err?.includes('Network Error'))
-        errMessage = sys.api.networkExceptionMsg
+        errMessage = sys.api.networkExceptionMsg;
 
       if (errMessage) {
         if (errorMessageMode === 'modal')
-          Modal.error({ title: sys.api.errorTip, content: errMessage })
+          Modal.error({ title: sys.api.errorTip, content: errMessage });
+        else if (errorMessageMode === 'message') void Message.error(errMessage);
 
-        else if (errorMessageMode === 'message')
-
-          void Message.error(errMessage)
-
-        return Promise.reject(error)
+        return Promise.reject(error);
       }
       // eslint-disable-next-line @typescript-eslint/no-shadow
-    }
-    catch (error) {
-      throw new Error(error as unknown as string)
+    } catch (error) {
+      throw new Error(error as unknown as string);
     }
 
-    checkStatus(error?.response?.status, msg, errorMessageMode)
+    checkStatus(error?.response?.status, msg, errorMessageMode);
 
     // 添加自动重试机制 保险起见 只针对GET请求
-    const retryRequest = new AxiosRetry()
-    const { isOpenRetry } = config.requestOptions.retryRequest
+    const retryRequest = new AxiosRetry();
+    const { isOpenRetry } = config.requestOptions.retryRequest;
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    config.method?.toUpperCase() === RequestEnum.GET
-    && isOpenRetry
-    // @ts-expect-error
-    && retryRequest.retry(axiosInstance, error)
-    return Promise.reject(error)
+    config.method?.toUpperCase() === RequestEnum.GET &&
+      isOpenRetry &&
+      // @ts-expect-error
+      retryRequest.retry(axiosInstance, error);
+    return Promise.reject(error);
   },
-}
+};
 // const useStore = useUserStoreWithOut()
 function createAxios(opt?: Partial<CreateAxiosOptions>) {
   return new VAxios(
@@ -275,10 +280,10 @@ function createAxios(opt?: Partial<CreateAxiosOptions>) {
       },
       opt || {},
     ),
-  )
+  );
 }
 
-export const defHttp = createAxios()
+export const defHttp = createAxios();
 
 // other api url
 // export const otherHttp = createAxios({

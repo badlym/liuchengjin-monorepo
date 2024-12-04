@@ -1,21 +1,24 @@
 <script setup lang="ts">
 import type { VxeGridProps } from 'vxe-table';
-import { reactive, withDefaults } from 'vue';
+import { computed, reactive, withDefaults } from 'vue';
 import BaseForm from '../baseForm/index.vue';
 defineOptions({
   name: 'BaseGrid',
 });
 const props = withDefaults(
   defineProps<{
-    formOptions: Record<string, any>;
+    formOptions?: Record<string, any>;
+    gridOptions?: Partial<VxeGridProps>;
   }>(),
   {
     formOptions: () => ({}),
+    gridOptions: () => ({}),
   },
 );
 console.log(props.formOptions);
 
-const gridOptions = reactive<VxeGridProps>({
+// 默认配置
+const defaultGridOptions: VxeGridProps = {
   columns: [
     { type: 'seq', width: 70 },
     { field: 'name', title: 'Name' },
@@ -31,7 +34,6 @@ const gridOptions = reactive<VxeGridProps>({
       age: 28,
       address: 'test abc',
     },
-
     {
       id: 10002,
       name: 'Test2',
@@ -57,12 +59,16 @@ const gridOptions = reactive<VxeGridProps>({
       address: 'Shanghai',
     },
   ],
-});
+};
+
+const mergedGridOptions = computed<VxeGridProps>(() =>
+  Object.assign({}, defaultGridOptions, props.gridOptions),
+);
 </script>
 
 <template>
   <div>
-    <vxe-grid v-bind="gridOptions">
+    <vxe-grid v-bind="mergedGridOptions">
       <template #form>
         <BaseForm />
       </template>

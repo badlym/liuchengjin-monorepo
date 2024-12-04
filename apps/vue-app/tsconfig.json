@@ -2,15 +2,15 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@liuchengjin/ts-config/vue-app.json",
   "compilerOptions": {
-    "allowJs": true,
     "baseUrl": ".",
-    "types": ["vite/client", "unplugin-vue-define-options/macros-global"," unplugin-icons/types/vue"],
     "paths": {
       "/@/*": ["src/*"],
       "/#/*": ["types/*"],
       "@/*": ["src/*"],
       "#/*": ["types/*"]
     },
+    "types": ["vite/client", "unplugin-vue-define-options/macros-global"],
+    "allowJs": true,
     "noUnusedLocals": false
   },
   "include": [
@@ -27,5 +27,4 @@
     "vite.config.ts"
   ],
   "exclude": ["node_modules", "dist", "public"]
-
 }

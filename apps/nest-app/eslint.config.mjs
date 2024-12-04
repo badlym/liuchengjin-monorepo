@@ -1,3 +1,3 @@
-import nestConfig from '@liuchengjin/eslint-config/nest-app'
+import nestConfig from '@liuchengjin/eslint-config/nest-app';
 
-export default nestConfig()
+export default nestConfig();

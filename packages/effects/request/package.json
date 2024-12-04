@@ -1,0 +1,22 @@
+{
+  "name": "@liuchengjin/request",
+  "type": "module",
+  "version": "5.4.8",
+  "license": "MIT",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "dependencies": {
+    "axios": "catalog:"
+  
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "catalog:"
+  }
+}

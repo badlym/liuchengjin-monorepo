@@ -1,25 +1,25 @@
-// src/entities/user.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import { Order } from '@/order/order.entity';
 
-import { Order } from '@/order/order.entity'
+// src/entities/user.entity.ts
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  id: number
+  id: number;
 
   @Column()
-  name: string
+  name: string;
 
   @Column()
-  sex: string
+  sex: string;
 
   @Column()
-  age: number
+  age: number;
 
   @Column()
-  email: string
+  email: string;
 
   @OneToMany(() => Order, (order) => order.user, { cascade: true })
-  orders: Order[]
+  orders: Order[];
 }

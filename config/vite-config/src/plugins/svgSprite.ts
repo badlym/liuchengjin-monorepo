@@ -3,23 +3,27 @@
  * https://github.com/anncwb/vite-plugin-svg-icons
  */
 
-import { resolve } from 'node:path';
-
-import Icons from 'unplugin-icons/vite';
 import type { PluginOption } from 'vite';
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
-import { Options } from '../types';
+import type { Options } from '../types';
+import { resolve } from 'node:path';
+import Icons from 'unplugin-icons/vite';
+
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 export function configSvgIconsPlugin({ isBuild }: { isBuild: boolean }) {
   const svgIconsPlugin = createSvgIconsPlugin({
     iconDirs: [resolve(process.cwd(), 'src/icons')],
     svgoOptions: isBuild,
-    symbolId: 'icon-[name]',
+    // symbolId: 'icon-[name]',
   });
   return svgIconsPlugin as PluginOption;
 }
-export function configUnPluginIcons(framework?: Options['framework'], options?: Options['options']) {
+
+export function configUnPluginIcons(
+  framework?: Options['framework'],
+  options?: Options['options'],
+) {
   if (framework === 'react') {
     return Icons(
       /* options */
