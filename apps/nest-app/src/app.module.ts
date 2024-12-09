@@ -1,12 +1,12 @@
-// src/app.module.ts
-import { Module } from '@nestjs/common';
-
-import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { OrderController } from '@/order/order.controller';
 
 import { Order } from '@/order/order.entity';
+
 import { OrderService } from '@/order/order.service';
+
+// src/app.module.ts
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { UserController } from './user/user.controller';
 import { User } from './user/user.entity';

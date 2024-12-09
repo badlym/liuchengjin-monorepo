@@ -79,6 +79,7 @@
   }
   .page-container {
     @apply p-4;
+    @apply h-full;
   }
 }
 

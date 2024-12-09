@@ -1,22 +1,27 @@
-import type { ActionType, ProColumns } from '@ant-design/pro-components'
-import { createApi, deleteByIdApi, findAllApi, updateByIdApi } from '@/api/order'
-import { findAllApi as findAllUserApi } from '@/api/user'
-import { PlusOutlined } from '@ant-design/icons'
-import { ProTable } from '@ant-design/pro-components'
-import { Button, Popconfirm } from 'antd'
+import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import {
+  createApi,
+  deleteByIdApi,
+  findAllApi,
+  updateByIdApi,
+} from '@/api/order';
+import { findAllApi as findAllUserApi } from '@/api/user';
+import { PlusOutlined } from '@ant-design/icons';
+import { ProTable } from '@ant-design/pro-components';
+import { Button, Popconfirm } from 'antd';
 
-import { omit } from 'lodash-es'
-import { useRef } from 'react'
+import { omit } from 'lodash-es';
+import { useRef } from 'react';
 
 async function request() {
-  const res = await findAllUserApi({})
+  const res = await findAllUserApi({});
 
   return res.map((item) => {
     return {
       label: item.name,
       value: item.id,
-    }
-  })
+    };
+  });
 }
 
 const columns: ProColumns[] = [
@@ -61,14 +66,14 @@ const columns: ProColumns[] = [
     render: (_text, record, _, action) => {
       const confirm = () => {
         void deleteByIdApi(record.id).then(() => {
-          void action?.reload()
-        })
-      }
+          void action?.reload();
+        });
+      };
       return [
         <a
           key="editable"
           onClick={() => {
-            action?.startEditable?.(record.id)
+            action?.startEditable?.(record.id);
           }}
         >
           编辑
@@ -82,13 +87,13 @@ const columns: ProColumns[] = [
         >
           <a>删除</a>
         </Popconfirm>,
-      ]
+      ];
     },
   },
-]
+];
 
-export default () => {
-  const actionRef = useRef<ActionType>()
+const OrderTable = () => {
+  const actionRef = useRef<ActionType>();
   return (
     <ProTable
       columns={columns}
@@ -99,25 +104,25 @@ export default () => {
           page: params.current,
           limit: params.pageSize,
           ...params,
-        })
+        });
         return {
           data: res.items,
           success: true,
           total: res.meta.totalItems,
-        }
+        };
       }}
       editable={{
         type: 'multiple',
         async onSave(_, row, _originRow, newLineConfig) {
-          if (newLineConfig) await createApi(omit(row, 'id'))
-          else await updateByIdApi(row)
+          if (newLineConfig) await createApi(omit(row, 'id'));
+          else await updateByIdApi(row);
         },
       }}
       columnsState={{
         persistenceKey: 'pro-table-singe-demos',
         persistenceType: 'localStorage',
         onChange(value) {
-          console.log('value: ', value)
+          console.log('value: ', value);
         },
       }}
       rowKey="id"
@@ -139,7 +144,10 @@ export default () => {
           key="button"
           icon={<PlusOutlined />}
           onClick={() => {
-            actionRef?.current?.addEditRecord({ id: Date.now() }, { position: 'top' })
+            actionRef?.current?.addEditRecord(
+              { id: Date.now() },
+              { position: 'top' },
+            );
           }}
           type="primary"
         >
@@ -147,5 +155,7 @@ export default () => {
         </Button>,
       ]}
     />
-  )
-}
+  );
+};
+
+export default OrderTable;

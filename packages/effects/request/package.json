@@ -13,8 +13,8 @@
     }
   },
   "dependencies": {
-    "axios": "catalog:"
-  
+    "axios": "catalog:",
+    "defu": "catalog:"
   },
   "devDependencies": {
     "axios-mock-adapter": "catalog:"

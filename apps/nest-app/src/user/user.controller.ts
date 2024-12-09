@@ -1,13 +1,8 @@
-import type { CreateUserDto } from '@/dto/create-user.dto';
+import { CreateUserDto } from '@/dto/create-user.dto';
 
-import type { PaginationDto } from '@/dto/pagination.dto';
+import { PaginationDto } from '@/dto/pagination.dto';
 
-import type { QueryUserDto } from '@/dto/query-user.dto';
-import type { Pagination } from 'nestjs-typeorm-paginate';
-import type { User } from './user.entity';
-
-import type { UserService } from './user.service';
-
+import { QueryUserDto } from '@/dto/query-user.dto';
 // src/user/user.controller.ts
 import {
   Body,
@@ -19,6 +14,11 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
+import { Pagination } from 'nestjs-typeorm-paginate';
+
+import { User } from './user.entity';
+
+import { UserService } from './user.service';
 
 @Controller('users')
 export class UserController {

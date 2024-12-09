@@ -1,14 +1,14 @@
 {
   "name": "@liuchengjin/ts-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "license": "MIT",
   "files": [
     "base.json",
     "node.json",
+    "react.json",
     "vue-app.json",
-    "node-server.json",
-    "react.json"
+    "web.json"
   ],
   "scripts": {
     "clean": "pnpm rimraf .turbo node_modules dist",

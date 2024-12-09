@@ -10,7 +10,7 @@ const handleClick = ({ key }: { key: string }) => {
 };
 </script>
 <template>
-  <a-layout style="min-height: 100vh">
+  <a-layout class="h-screen">
     <a-layout-sider
       v-model:collapsed="collapsed"
       collapsible
@@ -28,7 +28,7 @@ const handleClick = ({ key }: { key: string }) => {
         <a-menu-item key="/order">order</a-menu-item>
       </a-menu>
     </a-layout-sider>
-    <a-layout>
+    <a-layout class="h-screen">
       <a-layout-header style="padding: 0; background: #fff" />
       <a-layout-content style="margin: 0 16px">
         <router-view class="page-container" />

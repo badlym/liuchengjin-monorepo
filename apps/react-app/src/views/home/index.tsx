@@ -1,5 +1,9 @@
 import type { MenuProps } from 'antd';
-import { DesktopOutlined, FileOutlined, PieChartOutlined } from '@ant-design/icons';
+import {
+  DesktopOutlined,
+  FileOutlined,
+  PieChartOutlined,
+} from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
 
 import React, { useMemo, useState } from 'react';
@@ -46,7 +50,11 @@ const Home: React.FC = () => {
   } = theme.useToken();
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+      >
         <div className="tw-h-[50px]" />
         <Menu
           theme="dark"
@@ -59,11 +67,19 @@ const Home: React.FC = () => {
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }} />
         <Content style={{ margin: '20px 16px' }}>
-          <div style={{ padding: 24, minHeight: 360, background: colorBgContainer }}>
+          <div
+            style={{
+              padding: 24,
+              minHeight: 360,
+              background: colorBgContainer,
+            }}
+          >
             <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: 'center' }}>
+          Ant Design ©2023 Created by Ant UED
+        </Footer>
       </Layout>
     </Layout>
   );
