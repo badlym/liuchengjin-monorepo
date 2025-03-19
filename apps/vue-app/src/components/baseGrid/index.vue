@@ -54,16 +54,16 @@ const defaultGridOptions = reactive<VxeGridProps<any>>({
     },
   },
   columns: [
-    { type: 'seq', width: 70, showOverflow: true },
-    { field: 'name', title: '姓名', showOverflow: true },
-    {
-      field: 'sex',
-      title: '性别',
-      showOverflow: true,
-      formatter: ({ cellValue }) => (cellValue === '0' ? '男' : '女'),
-    },
-    { field: 'age', title: '年龄', showOverflow: true },
-    { field: 'email', title: '邮箱', showOverflow: true },
+    // { type: 'seq', width: 70, showOverflow: true },
+    // { field: 'name', title: '姓名', showOverflow: true },
+    // {
+    //   field: 'sex',
+    //   title: '性别',
+    //   showOverflow: true,
+    //   formatter: ({ cellValue }) => (cellValue === '0' ? '男' : '女'),
+    // },
+    // { field: 'age', title: '年龄', showOverflow: true },
+    // { field: 'email', title: '邮箱', showOverflow: true },
   ],
 });
 const handleSubmit = (formData: Record<string, any>) => {
@@ -82,7 +82,9 @@ const mergeGridOptions = computed(() => ({
 <template>
   <vxe-grid ref="gridRef" v-bind="mergeGridOptions">
     <template #form>
-      <BaseForm v-bind="formConfig" @submit="handleSubmit" />
+      <a-card style="margin-bottom: 20px">
+        <BaseForm v-bind="formConfig" @submit="handleSubmit" />
+      </a-card>
     </template>
   </vxe-grid>
 </template>
