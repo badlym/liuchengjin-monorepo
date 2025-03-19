@@ -1,19 +1,23 @@
 <script lang="ts" setup>
-import type { VxeGridProps } from 'vxe-table';
-import { computed, reactive } from 'vue';
+import type { VxeGridInstance, VxeGridProps } from 'vxe-table';
+import { computed, reactive, ref, toRaw } from 'vue';
 import { findAllApi } from '/@/api/core/user';
 const props = withDefaults(
   defineProps<{
     gridOptions?: VxeGridProps;
     formConfig?: Record<string, any>;
+    queryApi?: (params: any) => Promise<any>;
   }>(),
   {
     gridOptions: () => ({}),
     formConfig: () => ({}),
+    queryApi: () => Promise.resolve({ items: [], meta: { totalPages: 0 } }),
   },
 );
-
-const defaultGridOptions = reactive<VxeGridProps<RowVO>>({
+const gridRef = useTemplateRef<VxeGridInstance>('gridRef');
+// 存储表单查询参数
+const formParams = ref<Record<string, any>>({});
+const defaultGridOptions = reactive<VxeGridProps<any>>({
   border: true,
   height: '100%',
   maxHeight: '100%',
@@ -35,9 +39,10 @@ const defaultGridOptions = reactive<VxeGridProps<RowVO>>({
     ajax: {
       query: async ({ page }) => {
         // 默认接收 Promise<{ result: [], page: { total: 100 } }>
-        const res = await findAllApi({
+        const res = await props.queryApi({
           page: page.currentPage,
           limit: page.pageSize,
+          ...formParams.value, // 添加表单参数到查询中
         });
         return {
           result: res.items,
@@ -61,6 +66,12 @@ const defaultGridOptions = reactive<VxeGridProps<RowVO>>({
     { field: 'email', title: '邮箱', showOverflow: true },
   ],
 });
+const handleSubmit = (formData: Record<string, any>) => {
+  // 在提交表单时更新查询条件
+  formParams.value = formData;
+  // 刷新表格
+  gridRef.value?.commitProxy('reload');
+};
 
 const mergeGridOptions = computed(() => ({
   ...defaultGridOptions,
@@ -69,9 +80,9 @@ const mergeGridOptions = computed(() => ({
 </script>
 
 <template>
-  <vxe-grid v-bind="mergeGridOptions">
+  <vxe-grid ref="gridRef" v-bind="mergeGridOptions">
     <template #form>
-      <BaseForm v-bind="formConfig" />
+      <BaseForm v-bind="formConfig" @submit="handleSubmit" />
     </template>
   </vxe-grid>
 </template>

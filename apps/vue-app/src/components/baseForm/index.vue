@@ -1,14 +1,21 @@
 <script lang="ts" setup>
 import formCreate from '@form-create/ant-design-vue';
-
+import { computed, defineEmits, reactive } from 'vue';
 const props = withDefaults(
   defineProps<{
-    formConfig?: formCreate;
+    formConfig?: {
+      rule?: any[];
+      option?: Record<string, any>;
+      [key: string]: any;
+    };
   }>(),
   {
     formConfig: () => ({}),
   },
 );
+const emit = defineEmits<{
+  (e: 'submit', formData: Record<string, any>): void;
+}>();
 const fApi = reactive({});
 
 const defaultFormOptions = reactive({
@@ -22,16 +29,21 @@ const defaultFormOptions = reactive({
   ],
   option: {
     onSubmit: (formData) => {
-      alert(JSON.stringify(formData));
+      emit('submit', formData);
     },
     resetBtn: { show: true },
   },
 });
 
-const mergeFormOptions = computed(() => ({
-  ...defaultFormOptions,
-  ...props.formConfig,
-}));
+const mergeFormOptions = computed(() => {
+  const { rule = [], option = {}, ...rest } = props.formConfig || {};
+
+  return {
+    rule: [...defaultFormOptions.rule, ...rule],
+    option: { ...defaultFormOptions.option, ...option },
+    ...rest,
+  };
+});
 </script>
 
 <template>
